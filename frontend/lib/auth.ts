@@ -9,7 +9,7 @@ export interface CurrentUser {
   email: string;
   full_name: string;
   company_id: string;
-  roles: { id: string; name: string }[];
+  roles: { id?: string; name: string }[];
   avatar_url?: string;
   is_active: boolean;
 }
@@ -32,11 +32,15 @@ export function useAuth(requireAuth: boolean = true) {
 
       try {
         const userData = await apiFetch<CurrentUser>("/auth/me");
-        setUser(userData);
+        if (userData && (userData.id || userData.email)) {
+          setUser(userData);
+        } else {
+          throw new Error("Invalid user response");
+        }
       } catch (err) {
-        localStorage.removeItem("marp_token");
-        localStorage.removeItem("marp_user");
         if (requireAuth) {
+          localStorage.removeItem("marp_token");
+          localStorage.removeItem("marp_user");
           router.push("/login");
         }
       } finally {
@@ -55,8 +59,10 @@ export function useAuth(requireAuth: boolean = true) {
   };
 
   const hasRole = (roleName: string) => {
-    if (!user) return false;
-    return user.roles.some((r) => r.name === roleName);
+    if (!user || !Array.isArray(user.roles)) return false;
+    return user.roles.some((r: any) =>
+      typeof r === "string" ? r === roleName : r?.name === roleName
+    );
   };
 
   const isAdmin = () => hasRole("Company Administrator");

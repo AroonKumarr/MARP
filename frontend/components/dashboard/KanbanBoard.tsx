@@ -58,77 +58,80 @@ export function KanbanBoard({
 
       {/* Cards Stack */}
       <div className="flex flex-col gap-3.5">
-        {items.length === 0 ? (
+        {!items || items.length === 0 ? (
           <div className="bg-white/40 border border-dashed border-[#DDD7CD] rounded-2xl p-6 text-center text-xs text-[#77746F]">
             No tasks in this stage
           </div>
         ) : (
-          items.map((item) => (
-            <Card
-              key={item.id}
-              onClick={() => onCardClick && onCardClick(item)}
-              className="p-4 sm:p-5 cursor-pointer hover:-translate-y-0.5 active:translate-y-0 transition-all border border-[#ECE8E0]"
-            >
-              {/* Card Header: Tag Pill & Calendar Date */}
-              <div className="flex items-center justify-between gap-2 mb-2.5">
-                <span
-                  className={cn(
-                    "px-2.5 py-0.5 rounded-full text-[11px] font-semibold tracking-wide",
-                    getBadgeStyle(item.badge_color)
-                  )}
-                >
-                  {item.category}
-                </span>
+          items.map((item) => {
+            const assignees = Array.isArray(item.assignees) ? item.assignees : [];
+            return (
+              <Card
+                key={item.id}
+                onClick={() => onCardClick && onCardClick(item)}
+                className="p-4 sm:p-5 cursor-pointer hover:-translate-y-0.5 active:translate-y-0 transition-all border border-[#ECE8E0]"
+              >
+                {/* Card Header: Tag Pill & Calendar Date */}
+                <div className="flex items-center justify-between gap-2 mb-2.5">
+                  <span
+                    className={cn(
+                      "px-2.5 py-0.5 rounded-full text-[11px] font-semibold tracking-wide",
+                      getBadgeStyle(item.badge_color || "orange")
+                    )}
+                  >
+                    {item.category || "General"}
+                  </span>
 
-                <div className="flex items-center gap-1.5 text-xs text-[#77746F] font-medium">
-                  <Calendar className="w-3.5 h-3.5" />
-                  <span>{item.due_date_formatted}</span>
+                  <div className="flex items-center gap-1.5 text-xs text-[#77746F] font-medium">
+                    <Calendar className="w-3.5 h-3.5" />
+                    <span>{item.due_date_formatted || "-"}</span>
+                  </div>
                 </div>
-              </div>
 
-              {/* Title & Description */}
-              <h4 className="text-[14px] font-bold text-[#171717] line-clamp-1 mb-1">
-                {item.title}
-              </h4>
-              <p className="text-xs text-[#77746F] line-clamp-2 leading-relaxed mb-4">
-                {item.description}
-              </p>
+                {/* Title & Description */}
+                <h4 className="text-[14px] font-bold text-[#171717] line-clamp-1 mb-1">
+                  {item.title}
+                </h4>
+                <p className="text-xs text-[#77746F] line-clamp-2 leading-relaxed mb-4">
+                  {item.description || ""}
+                </p>
 
-              {/* Card Footer: Assignee Stack & Metrics */}
-              <div className="flex items-center justify-between pt-2 border-t border-[#F5F2EB]">
-                {/* Avatar Stack */}
-                <div className="flex items-center -space-x-2">
-                  {item.assignees.length > 0 ? (
-                    item.assignees.map((a, idx) => (
-                      <img
-                        key={idx}
-                        src={a.avatar}
-                        alt={a.name}
-                        title={a.name}
-                        className="w-6 h-6 rounded-full border-2 border-white object-cover"
-                      />
-                    ))
-                  ) : (
-                    <div className="w-6 h-6 rounded-full bg-[#EAE6DD] border-2 border-white flex items-center justify-center text-[10px] text-[#77746F]">
-                      -
+                {/* Card Footer: Assignee Stack & Metrics */}
+                <div className="flex items-center justify-between pt-2 border-t border-[#F5F2EB]">
+                  {/* Avatar Stack */}
+                  <div className="flex items-center -space-x-2">
+                    {assignees.length > 0 ? (
+                      assignees.map((a, idx) => (
+                        <img
+                          key={idx}
+                          src={a.avatar}
+                          alt={a.name || "User"}
+                          title={a.name}
+                          className="w-6 h-6 rounded-full border-2 border-white object-cover"
+                        />
+                      ))
+                    ) : (
+                      <div className="w-6 h-6 rounded-full bg-[#EAE6DD] border-2 border-white flex items-center justify-center text-[10px] text-[#77746F]">
+                        -
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Attachment & Comment Counters */}
+                  <div className="flex items-center gap-3 text-xs text-[#77746F]">
+                    <div className="flex items-center gap-1">
+                      <Paperclip className="w-3.5 h-3.5 text-[#9E9B95]" />
+                      <span>{item.attachment_count ?? 0}</span>
                     </div>
-                  )}
-                </div>
-
-                {/* Attachment & Comment Counters */}
-                <div className="flex items-center gap-3 text-xs text-[#77746F]">
-                  <div className="flex items-center gap-1">
-                    <Paperclip className="w-3.5 h-3.5 text-[#9E9B95]" />
-                    <span>{item.attachment_count}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <MessageSquare className="w-3.5 h-3.5 text-[#9E9B95]" />
-                    <span>{item.comment_count}</span>
+                    <div className="flex items-center gap-1">
+                      <MessageSquare className="w-3.5 h-3.5 text-[#9E9B95]" />
+                      <span>{item.comment_count ?? 0}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Card>
-          ))
+              </Card>
+            );
+          })
         )}
       </div>
     </div>

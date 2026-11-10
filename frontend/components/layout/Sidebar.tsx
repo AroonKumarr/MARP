@@ -63,7 +63,10 @@ export function Sidebar({ mobileOpen = false, onMobileClose }: SidebarProps) {
     return pathname.startsWith(href);
   };
 
-  const userRole = user?.roles?.[0]?.name || "Field Staff";
+  const userRole =
+    typeof user?.roles?.[0] === "string"
+      ? user.roles[0]
+      : (user?.roles?.[0] as any)?.name || "Field Staff";
 
   return (
     <>

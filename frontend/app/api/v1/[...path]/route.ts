@@ -7,7 +7,7 @@ let mockUsers = [
     email: "admin@marp.io",
     full_name: "Aroon Kumar (Lead)",
     phone: "+92-300-1234567",
-    roles: ["Company Administrator"],
+    roles: [{ id: "r-admin", name: "Company Administrator" }],
     is_active: true,
     is_verified: true,
     avatar_url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
@@ -18,7 +18,7 @@ let mockUsers = [
     email: "manager@marp.io",
     full_name: "Mudasir Ali",
     phone: "+92-300-7654321",
-    roles: ["Research Manager"],
+    roles: [{ id: "r-manager", name: "Research Manager" }],
     is_active: true,
     is_verified: true,
     avatar_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
@@ -29,7 +29,7 @@ let mockUsers = [
     email: "analyst@marp.io",
     full_name: "Abdullah Zafar Khan",
     phone: "+92-321-9876543",
-    roles: ["Analyst"],
+    roles: [{ id: "r-analyst", name: "Analyst" }],
     is_active: true,
     is_verified: true,
     avatar_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
@@ -40,7 +40,7 @@ let mockUsers = [
     email: "field@marp.io",
     full_name: "Zainab Fatima",
     phone: "+92-333-7788990",
-    roles: ["Field Staff"],
+    roles: [{ id: "r-field", name: "Field Staff" }],
     is_active: true,
     is_verified: true,
     avatar_url: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80",
@@ -51,7 +51,7 @@ let mockUsers = [
     email: "reviewer@marp.io",
     full_name: "Bilal Ahmed",
     phone: "+92-345-9988776",
-    roles: ["Evidence Reviewer"],
+    roles: [{ id: "r-reviewer", name: "Evidence Reviewer" }],
     is_active: true,
     is_verified: true,
     avatar_url: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80",
@@ -471,6 +471,22 @@ export async function GET(req: NextRequest, { params }: { params: { path: string
 
   const path = params.path.join("/");
 
+  // 0. Auth Current User
+  if (path === "auth/me") {
+    return NextResponse.json({
+      id: "u-1",
+      email: "admin@marp.io",
+      full_name: "Aroon Kumar (Lead)",
+      company_id: "cmp-marp-pk",
+      company_name: "MARP Enterprise Pakistan",
+      roles: [{ id: "r-1", name: "Company Administrator" }],
+      avatar_url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      is_active: true,
+      is_verified: true,
+      created_at: "2026-10-15T09:00:00Z",
+    });
+  }
+
   // 1. Dashboard Routes
   if (path === "dashboard/workflow-board") {
     return NextResponse.json({
@@ -478,50 +494,74 @@ export async function GET(req: NextRequest, { params }: { params: { path: string
         {
           id: "task-1",
           title: "Verify Centaurus LED Night Illumination",
-          campaign: "Jazz 4G National Highway Dominance",
-          assignee: "Aroon Kumar (Lead)",
-          avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
-          status: "todo",
-          priority: "High",
-          tag: "Field Audit",
-          location: "Centaurus Flyover, Islamabad",
+          description: "Night audit: Verify structural condition & LED illumination on Jinnah Avenue",
+          category: "Billboard",
+          badge_color: "periwinkle",
+          due_date_formatted: "12 Nov",
+          assignees: [
+            {
+              name: "Aroon Kumar (Lead)",
+              avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+            },
+          ],
+          attachment_count: 2,
+          comment_count: 1,
+          status: "Scheduled",
         },
         {
           id: "task-2",
           title: "Audit Coca-Cola Retail Cooler Share",
-          campaign: "Coca-Cola Pakistan Summer Refresher",
-          assignee: "Mudasir Ali",
-          avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
-          status: "todo",
-          priority: "Medium",
-          tag: "Retail Check",
-          location: "Gulberg III, Lahore",
+          description: "Inspect Gulberg III supermarket beverage coolers for planogram execution",
+          category: "Retail",
+          badge_color: "lime",
+          due_date_formatted: "14 Nov",
+          assignees: [
+            {
+              name: "Mudasir Ali",
+              avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+            },
+          ],
+          attachment_count: 1,
+          comment_count: 0,
+          status: "Scheduled",
         },
       ],
       in_progress: [
         {
           id: "task-3",
           title: "Zong 4G Competitor Highway Billboard Log",
-          campaign: "Telecom OOH Footprint",
-          assignee: "Abdullah Zafar Khan",
-          avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
-          status: "in_progress",
-          priority: "High",
-          tag: "Competitor",
-          location: "GT Road, Gujranwala",
+          description: "Capture competitor billboard placement photos & GPS coordinates on GT Road",
+          category: "Competitor",
+          badge_color: "lavender",
+          due_date_formatted: "11 Nov",
+          assignees: [
+            {
+              name: "Abdullah Zafar Khan",
+              avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+            },
+          ],
+          attachment_count: 4,
+          comment_count: 2,
+          status: "In Progress",
         },
       ],
       review: [
         {
           id: "task-4",
           title: "Blue Area Unipole Structural Skin Inspection",
-          campaign: "Jazz 4G National Highway Dominance",
-          assignee: "Bilal Ahmed",
-          avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80",
-          status: "review",
-          priority: "Urgent",
-          tag: "Evidence Review",
-          location: "Beverly Centre, Blue Area",
+          description: "Evidence submission pending reviewer approval for lighting and skin verification",
+          category: "Field",
+          badge_color: "mint",
+          due_date_formatted: "10 Nov",
+          assignees: [
+            {
+              name: "Bilal Ahmed",
+              avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80",
+            },
+          ],
+          attachment_count: 3,
+          comment_count: 1,
+          status: "Completed",
         },
       ],
     });
@@ -558,6 +598,16 @@ export async function GET(req: NextRequest, { params }: { params: { path: string
   // 2. Users & Workspace Routes
   if (path === "users") {
     return NextResponse.json(mockUsers);
+  }
+
+  if (path === "roles") {
+    return NextResponse.json([
+      { id: "r-admin", name: "Company Administrator", description: "Full workspace administrative access" },
+      { id: "r-manager", name: "Research Manager", description: "Design surveys and manage research campaigns" },
+      { id: "r-analyst", name: "Analyst", description: "Query and inspect market intelligence reports" },
+      { id: "r-field", name: "Field Staff", description: "Collect ground truth evidence and fill surveys" },
+      { id: "r-reviewer", name: "Evidence Reviewer", description: "Verify and approve field proof submissions" },
+    ]);
   }
 
   if (path === "devices") {
@@ -642,6 +692,12 @@ export async function POST(req: NextRequest, { params }: { params: { path: strin
       const body = await req.json();
       const email = body.email || "admin@marp.io";
       const user = mockUsers.find((u) => u.email === email) || mockUsers[0];
+      const roleObjects = Array.isArray(user.roles)
+        ? user.roles.map((r: any) =>
+            typeof r === "string" ? { id: `r-${r}`, name: r } : r
+          )
+        : [{ id: "r-1", name: "Company Administrator" }];
+
       return NextResponse.json({
         access_token: "mock-jwt-token-marp-enterprise-2026",
         token_type: "bearer",
@@ -650,7 +706,7 @@ export async function POST(req: NextRequest, { params }: { params: { path: strin
         full_name: user.full_name,
         company_id: "cmp-marp-pk",
         company_name: "MARP Enterprise Pakistan",
-        roles: user.roles,
+        roles: roleObjects,
       });
     } catch {
       return NextResponse.json({
@@ -661,7 +717,7 @@ export async function POST(req: NextRequest, { params }: { params: { path: strin
         full_name: "Aroon Kumar (Lead)",
         company_id: "cmp-marp-pk",
         company_name: "MARP Enterprise Pakistan",
-        roles: ["Company Administrator"],
+        roles: [{ id: "r-1", name: "Company Administrator" }],
       });
     }
   }

@@ -60,12 +60,13 @@ export default function DashboardPage() {
 
   // Filter tasks by search term
   const filterList = (items: BoardItem[]) => {
+    if (!Array.isArray(items)) return [];
     if (!searchTerm) return items;
     return items.filter(
       (item) =>
-        item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.category.toLowerCase().includes(searchTerm.toLowerCase())
+        (item.title && item.title.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (item.description && item.description.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (item.category && item.category.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   };
 
