@@ -70,8 +70,8 @@ export function Shell({ children }: ShellProps) {
           onMobileClose={() => setMobileMenuOpen(false)}
         />
 
-        {/* Main Content Viewport */}
-        <main className="flex-1 overflow-y-auto overflow-x-hidden min-w-0 pr-0.5 sm:pr-1">
+        {/* Main Content Viewport (Flexes and animates dynamically with sidebar hover) */}
+        <main className="flex-1 overflow-y-auto overflow-x-hidden min-w-0 pr-0.5 sm:pr-1 transition-all duration-300 ease-in-out">
           {children}
         </main>
       </div>

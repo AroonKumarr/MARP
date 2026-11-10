@@ -9,6 +9,7 @@ import { Modal } from "@/components/ui/Modal";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { apiFetch } from "@/lib/api";
 import { formatDate } from "@/lib/utils";
+import { useAuth } from "@/lib/auth";
 import {
   Users as UsersIcon,
   Smartphone,
@@ -24,6 +25,7 @@ import {
 } from "lucide-react";
 
 export default function UsersPage() {
+  const { user: currentUser, isAdmin } = useAuth(true);
   const [activeTab, setActiveTab] = useState<"users" | "devices" | "audit">("users");
   const [users, setUsers] = useState<any[]>([]);
   const [devices, setDevices] = useState<any[]>([]);
@@ -168,11 +170,26 @@ export default function UsersPage() {
 
   return (
     <div className="flex flex-col h-full">
+      {/* Role Permission Notice for Non-Administrators */}
+      {!isAdmin() && (
+        <div className="mb-4 p-3 bg-blue-50 border border-blue-200 text-blue-900 rounded-2xl flex items-center justify-between text-xs">
+          <div className="flex items-center gap-2">
+            <Shield className="w-4 h-4 text-blue-600 flex-shrink-0" />
+            <span>
+              <strong>Role Scope:</strong> Logged in as <strong>{currentUser?.roles?.[0]?.name || "Field Staff"}</strong>. Administrative operations (Add/Deactivate Users, Manage Roles, Approve Hardware) require <strong>Company Administrator</strong> rights.
+            </span>
+          </div>
+          <span className="px-2.5 py-0.5 rounded-full font-bold text-[10px] bg-blue-200 text-blue-800 flex-shrink-0">
+            Read-Only Directory
+          </span>
+        </div>
+      )}
+
       {/* Top Header */}
       <Header
         onSearch={(term) => setSearchTerm(term)}
-        actionLabel="Add User"
-        onAction={() => setIsAddModalOpen(true)}
+        actionLabel={isAdmin() ? "Add User" : undefined}
+        onAction={isAdmin() ? () => setIsAddModalOpen(true) : undefined}
       />
 
       {/* Tabs Switcher */}
@@ -215,7 +232,7 @@ export default function UsersPage() {
           </button>
         </div>
 
-        {activeTab === "users" && (
+        {activeTab === "users" && isAdmin() && (
           <div className="flex items-center gap-2">
             <Button
               onClick={() => setIsInviteModalOpen(true)}
@@ -342,16 +359,22 @@ export default function UsersPage() {
 
                       <td className="py-3 px-5 text-right">
                         <div className="flex items-center justify-end gap-2">
-                          <button
-                            onClick={() => handleToggleActive(u)}
-                            className={`px-3 py-1 rounded-full text-xs font-semibold border transition-all ${
-                              u.is_active
-                                ? "bg-white text-red-600 border-red-200 hover:bg-red-50"
-                                : "bg-emerald-600 text-white border-transparent hover:bg-emerald-700"
-                            }`}
-                          >
-                            {u.is_active ? "Deactivate" : "Activate"}
-                          </button>
+                          {isAdmin() ? (
+                            <button
+                              onClick={() => handleToggleActive(u)}
+                              className={`px-3 py-1 rounded-full text-xs font-semibold border transition-all ${
+                                u.is_active
+                                  ? "bg-white text-red-600 border-red-200 hover:bg-red-50"
+                                  : "bg-emerald-600 text-white border-transparent hover:bg-emerald-700"
+                              }`}
+                            >
+                              {u.is_active ? "Deactivate" : "Activate"}
+                            </button>
+                          ) : (
+                            <span className="text-[11px] font-medium text-[#9E9B95] italic">
+                              View Only
+                            </span>
+                          )}
                         </div>
                       </td>
                     </tr>
@@ -429,21 +452,29 @@ export default function UsersPage() {
 
                       <td className="py-3 px-5 text-right">
                         <div className="flex items-center justify-end gap-2">
-                          {d.status !== "Approved" && (
-                            <button
-                              onClick={() => handleApproveDevice(d.id)}
-                              className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full text-xs font-semibold"
-                            >
-                              Approve
-                            </button>
-                          )}
-                          {d.status !== "Revoked" && (
-                            <button
-                              onClick={() => handleRevokeDevice(d.id)}
-                              className="px-3 py-1 bg-white hover:bg-red-50 text-red-600 border border-red-200 rounded-full text-xs font-semibold"
-                            >
-                              Revoke
-                            </button>
+                          {isAdmin() ? (
+                            <>
+                              {d.status !== "Approved" && (
+                                <button
+                                  onClick={() => handleApproveDevice(d.id)}
+                                  className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full text-xs font-semibold"
+                                >
+                                  Approve
+                                </button>
+                              )}
+                              {d.status !== "Revoked" && (
+                                <button
+                                  onClick={() => handleRevokeDevice(d.id)}
+                                  className="px-3 py-1 bg-white hover:bg-red-50 text-red-600 border border-red-200 rounded-full text-xs font-semibold"
+                                >
+                                  Revoke
+                                </button>
+                              )}
+                            </>
+                          ) : (
+                            <span className="text-[11px] font-medium text-[#9E9B95] italic">
+                              Admin Required
+                            </span>
                           )}
                         </div>
                       </td>

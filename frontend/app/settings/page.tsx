@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 
 export default function SettingsPage() {
-  const { user } = useAuth(true);
+  const { user, isAdmin } = useAuth(true);
   const [activeTab, setActiveTab] = useState<"settings" | "erd">("settings");
   const [selectedStudent, setSelectedStudent] = useState<"all" | "aroon" | "mudasir" | "abdullah">("all");
 
@@ -165,6 +165,19 @@ export default function SettingsPage() {
       {/* ============================================================== */}
       {activeTab === "settings" && (
         <>
+          {!isAdmin() && (
+            <div className="mb-6 p-4 bg-amber-50 border border-amber-200 text-amber-900 rounded-2xl flex items-center justify-between text-xs">
+              <div className="flex items-center gap-2">
+                <Shield className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                <span>
+                  <strong>Access Policy:</strong> You are signed in as <strong>{user?.roles?.[0]?.name || "Field Staff"}</strong>. Company workspace governance and security rules can only be edited by <strong>Company Administrators</strong>.
+                </span>
+              </div>
+              <span className="px-2.5 py-0.5 rounded-full font-bold text-[10px] bg-amber-200 text-amber-800 flex-shrink-0">
+                Read-Only View
+              </span>
+            </div>
+          )}
           {successMsg && (
             <div className="mb-6 p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold rounded-2xl flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-emerald-600" />
@@ -315,11 +328,17 @@ export default function SettingsPage() {
               </div>
             </Card>
 
-            <div className="flex justify-end">
-              <Button type="submit" disabled={saving} variant="primary" size="md">
-                <Save className="w-4 h-4" />
-                <span>{saving ? "Saving Changes..." : "Save Workspace Settings"}</span>
-              </Button>
+            <div className="flex justify-end items-center gap-3">
+              {isAdmin() ? (
+                <Button type="submit" disabled={saving} variant="primary" size="md">
+                  <Save className="w-4 h-4" />
+                  <span>{saving ? "Saving Changes..." : "Save Workspace Settings"}</span>
+                </Button>
+              ) : (
+                <span className="text-xs text-[#77746F] font-semibold italic bg-[#FAF8F3] px-4 py-2 rounded-xl border border-[#ECE8E0]">
+                  🔒 Administrator rights required to modify workspace settings
+                </span>
+              )}
             </div>
           </form>
         </>
