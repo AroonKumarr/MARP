@@ -15,6 +15,7 @@ import {
   Layers,
   Sparkles,
   Maximize2,
+  FileText,
 } from "lucide-react";
 
 export default function StandaloneERDPage() {
@@ -224,6 +225,17 @@ export default function StandaloneERDPage() {
           >
             <Download className="w-3.5 h-3.5" />
             <span>PNG</span>
+          </a>
+
+          <a
+            href="/presentation/MARP_FYP_Defense_Presentation_Script.pdf"
+            download="MARP_FYP_Defense_Presentation_Script.pdf"
+            target="_blank"
+            className="px-3 py-1.5 rounded-full bg-[#059669] hover:bg-[#047857] text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-colors"
+            title="Download 10-Minute Presentation Script (PDF)"
+          >
+            <FileText className="w-3.5 h-3.5" />
+            <span>Script PDF</span>
           </a>
         </div>
       </header>
