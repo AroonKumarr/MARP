@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MARP FYP — 3-Circle Student ERD Master Diagram</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #F8FAFC;
+      color: #0F172A;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+    header {
+      background: #FFFFFF;
+      border-bottom: 1px solid #E2E8F0;
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      z-index: 10;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .badge-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #10B981;
+    }
+    h1 {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.3px;
+    }
+    .subtitle {
+      font-size: 11px;
+      color: #64748B;
+      font-weight: 600;
+    }
+    .btn-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    button, .btn-link {
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      padding: 7px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0F172A;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    button:hover, .btn-link:hover {
+      background: #F1F5F9;
+      border-color: #94A3B8;
+    }
+    .btn-primary {
+      background: #0F172A;
+      color: #FFFFFF;
+      border-color: #0F172A;
+    }
+    .btn-primary:hover {
+      background: #1E293B;
+      border-color: #1E293B;
+    }
+    .btn-indigo {
+      background: #4338CA;
+      color: #FFFFFF;
+      border-color: #4338CA;
+    }
+    .btn-indigo:hover {
+      background: #3730A3;
+    }
+    #viewport {
+      flex: 1;
+      overflow: auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 32px;
+      background: #F1F5F9;
+      cursor: grab;
+    }
+    #viewport:active {
+      cursor: grabbing;
+    }
+    #canvas-container {
+      background: #FFFFFF;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.1);
+      border: 1px solid #CBD5E1;
+      padding: 24px;
+      transform-origin: top center;
+      transition: transform 0.15s ease-out;
+    }
+    #canvas-container img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      user-select: none;
+    }
+    @media print {
+      header, .btn-group { display: none !important; }
+      #viewport { padding: 0 !important; overflow: visible !important; }
+      #canvas-container { border: none !important; box-shadow: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand-title">
+      <div class="badge-dot"></div>
+      <div>
+        <h1>MARP • 3-Circle Student ERD Master Architecture</h1>
+        <p class="subtitle">Aroon Kumar (2312466) • Mudasir Ali (2312465) • Abdullah Zafar Khan (2312467)</p>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <button onclick="zoomOut()">Zoom Out (-)</button>
+      <button onclick="resetZoom()" id="zoom-text">100%</button>
+      <button onclick="zoomIn()">Zoom In (+)</button>
+      <button onclick="window.print()">Print / Save PDF</button>
+      <a href="erd_students_annotated.svg" download="MARP_3_Circle_Student_ERD.svg" class="btn-link btn-primary">Download SVG</a>
+      <a href="erd_presentation_1920.png" download="MARP_3_Circle_ERD_1080p.png" class="btn-link btn-indigo">Download Slide PNG</a>
+    </div>
+  </header>
+
+  <div id="viewport">
+    <div id="canvas-container">
+      <img src="erd_students_annotated.svg" alt="MARP FYP 3-Circle Student ERD" id="erd-img">
+    </div>
+  </div>
+
+  <script>
+    let scale = 1.0;
+    const container = document.getElementById('canvas-container');
+    const zoomText = document.getElementById('zoom-text');
+
+    function updateTransform() {
+      container.style.transform = `scale(${scale})`;
+      zoomText.innerText = Math.round(scale * 100) + '%';
+    }
+
+    function zoomIn() {
+      scale = Math.min(scale + 0.2, 3.0);
+      updateTransform();
+    }
+
+    function zoomOut() {
+      scale = Math.max(scale - 0.2, 0.4);
+      updateTransform();
+    }
+
+    function resetZoom() {
+      scale = 1.0;
+      updateTransform();
+    }
+
+    // Wheel Zoom with Ctrl or Cmd
+    window.addEventListener('wheel', (e) => {
+      if (e.ctrlKey || e.metaKey) {
+        e.preventDefault();
+        if (e.deltaY < 0) zoomIn();
+        else zoomOut();
+      }
+    }, { passive: false });
+  </script>
+</body>
+</html>
