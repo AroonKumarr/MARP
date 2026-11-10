@@ -1,0 +1,167 @@
+=== docs/2312466-2312465-2312467 Multi-Agent Market Research Platform - Overview 2.pdf (Total pages: 10) ===
+
+--- PAGE 1 ---
+Final Year Project Document
+Multi-Agent Market Research
+Platform
+Aroon Kumar (2312466)
+Mudasir Ali (2312465)
+Abdullah Zafar Khan (2312467)
+Supervised by: Mr. Zubair Ahmed
+Department of Computer Science
+Faculty of Computing and Engineering Sciences
+SZABIST University
+SZABIST (Islamabad Campus), Pakistan
+Fall 2026
+
+--- PAGE 2 ---
+Multi-Agent Market Research
+Platform
+By
+Aroon Kumar (2312466)
+Mudasir Ali (2312465)
+Abdullah Zafar Khan (2312467)
+A PROJECT SUBMITTED IN PARTIAL FULFILLMENT OF THE
+REQUIREMENTS FOR THE DEGREE (Bachelor of Computer Science)
+(Supervisor) (FYP Committee Head)
+Mr. Zubair Ahmed Mr. Muhammad Nadeem Khokhar
+(Program Manager BS(CS))
+Mr. Rana Faisal Hayat
+Department of Department of Computer Science
+Faculty of Computing and Engineering Sciences
+Shaheed Zulfikar Ali Bhutto Institute of Science and Technology
+SZABIST (Islamabad Campus), Pakistan
+Fall 2026
+
+--- PAGE 3 ---
+DECLARATION
+We, the candidates of Bachelor of Science (Computer Science) at Shaheed Zulfikar Ali
+Bhutto Institute of Science and Technology, Islamabad do hereby certify that this report
+titled Multi-Agent Market Research Platform , submitted as partial fulfillment of
+Bachelor of Science (Computer Science) degree requirements, is our original work and we
+are its sole author. All the employed materials, references to the literature and the work
+of others have been referred to and duly cited. This report has not been presented for
+examination anywhere else.
+Aroon Kumar Mudasir Ali
+2312466 2312465
+Abdullah Zafar Khan
+2312467
+
+--- PAGE 4 ---
+Project Overview
+A single application bridges the gap between onsite data collection and backend analysis.
+Survey teams gather responses, images, and audio directly in the field. Spatial coordinates
+get logged at the exact moment a worker hits capture, locking every photo to a precise
+physical location. If the internet drops out, the device simply caches the payload locally.
+Background syncing happens automatically later. Once data reaches the server, AI agents
+start scanning. They flag incomplete entries and extract the core metrics needed for
+research. Supervisors do not wait for delayed batch reports anymore. A live dashboard
+lets administrators validate individual surveys the second they appear in the database.
+Analysts use a web portal for strategy. Surveyors use an Android app to log data.
+A single platform connects field operations with backend analysis. A database links
+media files to surveys. Investigators use this connection as a history log. A local cache
+manages network drops. The software syncs data after internet returns. An AI module
+parses media files. The system extracts metrics to accelerate drafting. The program
+flags anomalous entries. Administrators control system access through secure logins.
+The dashboard displays real-time progress updates. Staff members validate the records
+before delivery. The platform generates final reports in standard formats. Cloud servers
+store all approved records permanently.
+The proposed system manages users, questionnaires, campaigns, attendance, data
+collection, synchronization, verification, market intelligence, media processing, agent or-
+chestration, field performance, and analytics. The system controls access through user
+permissions and registered devices. The Android application collects responses, pho-
+tographs, audio, GPS coordinates, and timestamps. The application stores submissions
+offline and synchronizes records when connectivity returns. The AI agents support re-
+search planning, information extraction, verification, analysis, and reporting. The sys-
+tem routes uncertain evidence to human reviewers and displays campaign comparisons
+through dashboards. The system also supports supervised coding assistance and work-
+flow evaluation. The platform serves market research agencies, brand teams, researchers,
+analysts, and field staff. It aims to reduce repeated handling of information and make
+campaign evidence easier to organize, inspect, and compare. Managers gain visibility into
+field activity, submission completeness, and research findings, while analysts retain access
+to supporting sources and documented calculations. Human review preserves oversight
+of disputed records. Its intended impact is more traceable research and better-informed
+decisions, with benefits assessed through measured workflow performance, numerical ac-
+curacy, and source support.
+ii
+
+--- PAGE 5 ---
+Dedication
+Our families handle the daily background stress for us. This massive support allows our
+team to focus strictly on writing code. The belief from our parents pushes us forward
+during overwhelming workloads. We share this final milestone directly with them. Their
+patience makes this entire software system possible for us.
+The SZABIST University professors shape our approach to software development.
+Our mentors answer our most confusing technical questions. The teachers evaluate our
+messy early drafts for major flaws. Our team applies those harsh critiques directly to the
+system architecture. We carry this practical guidance into our professional careers.
+Close friends face these brutal university deadlines alongside our team. Our classmates
+stay in the computer labs until midnight with us. This constant companionship makes
+us feel much less isolated. Classmates trade ideas and fix software bugs with us daily.
+That shared frustration easily becomes our favorite university experience.
+Field surveyors give this system an actual purpose for us. Data analysts provide our
+team with real-world inspiration. We write the backend synchronization algorithms, but
+the active field workers dictate the actual software requirements. Our group observes
+these data collection workflows daily. We sincerely want our platform to simplify their
+remote reporting routines.
+iii
+
+--- PAGE 6 ---
+Acknowledgment
+We received critical guidance from Mr. Zubair Ahmed throughout the development cycle
+of the proposed system. We encountered technical dead ends frequently during the initial
+coding phases. His strict feedback consistently pulled our team out. He reviewed every
+single page of our messy documentation drafts. We applied his specific industry knowledge
+to overhaul the software architecture. We built a much better final system because of his
+dedication to our progress. Our team remains genuinely thankful for his valuable time.
+Our team extended deep gratitude to SZABIST University. The Islamabad Campus
+provided critical infrastructure for us during development. The Computer Science testing
+labs hosted our group for several weeks. We utilized the available technical resources on
+site to compile heavy models. External evaluators offered harsh critiques to us after
+examining the broken early prototypes. We redesigned the system entirely from that
+feedback. We needed this specific campus access to finish the proposed system.
+Several open-source repositories provided the necessary raw data for us. Independent
+sports academies supplied massive archives of cricket footage to our team. We fed those
+specific video files directly into the computer-vision models. The detection algorithms
+required thousands of testing frames from us to achieve baseline accuracy. These external
+communities saved our development timeline. We genuinely appreciated their extensive
+public datasets.
+Close friends and family members kept us sane during this intense development cy-
+cle. Late-night software debugging caused severe burnout for our team. Relatives fre-
+quently stepped in to manage our outside responsibilities. This emotional backing gave
+us strength during the hardest weeks. Classmates prevented total exhaustion by forcing
+us away from the monitors. We ultimately delivered a functioning system because this
+support network refused to let us quit.
+iv
+
+--- PAGE 7 ---
+Revision History
+Compiled By Checked By Date Description V ersion
+Aroon Kumar Mr. Zubair Ahmed 15 Sept 2026 Section 1 1.0
+Mudasir Ali Mr. Zubair Ahmed 15 Sept 2026 Section 2 1.1
+Abdullah Zafar Khan Mr. Zubair Ahmed 15 Sept 2026 Section 3 1.2
+Aroon Kumar Mr. Zubair Ahmed 16 Sept 2026 Section 4 1.3
+Mudasir Ali Mr. Zubair Ahmed 16 Sept 2026 Section 5 1.4
+Abdullah Zafar Khan Mr. Zubair Ahmed 16 Sept 2026 Section 6 1.5
+Aroon Kumar Mr. Zubair Ahmed 17 Sept 2026 Section 7 1.6
+Mudasir Ali Mr. Zubair Ahmed 17 Sept 2026 Section 8 1.7
+Abdullah Zafar Khan Mr. Zubair Ahmed 17 Sept 2026 Section 9 1.8
+Aroon Kumar Mr. Zubair Ahmed 18 Sept 2026 Section 10 1.9
+Mudasir Ali Mr. Zubair Ahmed 18 Sept 2026 Section 11 2.0
+Abdullah Zafar Khan Mr. Zubair Ahmed 18 Sept 2026 Section 12, 13 2.1
+
+--- PAGE 8 ---
+Contents
+Dedication iii
+List of Figures vii
+List of Tables viii
+vi
+
+--- PAGE 9 ---
+List of Figures
+vii
+
+--- PAGE 10 ---
+List of Tables
+viii
+

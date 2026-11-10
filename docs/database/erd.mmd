@@ -1,0 +1,355 @@
+erDiagram
+    %% MODULE 01: WORKSPACE AND USER MANAGEMENT
+    COMPANIES ||--o{ USERS : "has members"
+    COMPANIES ||--o{ WORKSPACE_SETTINGS : "configures"
+    COMPANIES ||--o{ REGISTERED_DEVICES : "manages"
+    COMPANIES ||--o{ USER_INVITATIONS : "issues"
+    COMPANIES ||--o{ AUDIT_LOGS : "records"
+    COMPANIES ||--o{ QUESTIONNAIRES : "owns"
+    COMPANIES ||--o{ CAMPAIGNS : "operates"
+    COMPANIES ||--o{ LOCATIONS : "defines"
+    COMPANIES ||--o{ COMPETITORS : "tracks"
+
+    USERS ||--o{ USER_ROLES : "assigned"
+    ROLES ||--o{ USER_ROLES : "granted to"
+    ROLES ||--o{ ROLE_PERMISSIONS : "contains"
+    PERMISSIONS ||--o{ ROLE_PERMISSIONS : "associated with"
+
+    USERS ||--o{ REGISTERED_DEVICES : "operates"
+    USERS ||--o{ AUDIT_LOGS : "generates"
+    USERS ||--o{ CAMPAIGN_ASSIGNMENTS : "assigned to"
+    USERS ||--o{ CAMPAIGNS : "manages"
+
+    %% MODULE 02: QUESTIONNAIRE MANAGEMENT
+    QUESTIONNAIRES ||--o{ QUESTIONNAIRE_VERSIONS : "versioned as"
+    QUESTIONNAIRES ||--o{ QUESTIONS : "contains"
+    QUESTIONNAIRES ||--o{ BRANCHING_RULES : "governed by"
+    QUESTIONNAIRES ||--o| QUESTIONNAIRE_ELIGIBILITIES : "constrained by"
+    QUESTIONNAIRES ||--o| OTP_CONFIGURATIONS : "secured with"
+    QUESTIONNAIRES ||--o{ CAMPAIGN_QUESTIONNAIRES : "linked to"
+
+    QUESTIONS ||--o{ QUESTION_OPTIONS : "has options"
+    QUESTIONS ||--o{ QUESTION_TRANSLATIONS : "translated into"
+    QUESTIONS ||--o{ BRANCHING_RULES : "triggers rule"
+    QUESTIONS ||--o{ BRANCHING_RULES : "targets rule"
+
+    %% MODULE 03: CAMPAIGN MANAGEMENT
+    CAMPAIGNS ||--o{ CAMPAIGN_LOCATIONS : "conducted at"
+    LOCATIONS ||--o{ CAMPAIGN_LOCATIONS : "hosts"
+    LOCATIONS ||--o{ LOCATIONS : "parent of"
+    LOCATIONS ||--o{ ADVERTISEMENTS : "situated at"
+    LOCATIONS ||--o{ COMPETITOR_ADVERTISEMENTS : "displays"
+    LOCATIONS ||--o{ CAMPAIGN_ASSIGNMENTS : "field location"
+
+    CAMPAIGNS ||--o{ ADVERTISEMENTS : "includes"
+    CAMPAIGNS ||--o{ CAMPAIGN_ASSIGNMENTS : "schedules"
+    CAMPAIGNS ||--o{ CAMPAIGN_QUESTIONNAIRES : "executes"
+    CAMPAIGNS ||--o{ CAMPAIGN_EVIDENCE : "gathers"
+
+    COMPETITORS ||--o{ COMPETITOR_CAMPAIGNS : "runs"
+    COMPETITOR_CAMPAIGNS ||--o{ COMPETITOR_ADVERTISEMENTS : "features"
+
+    CAMPAIGN_ASSIGNMENTS ||--o{ CAMPAIGN_EVIDENCE : "collected by"
+
+    %% ENTITY DEFINITIONS
+
+    COMPANIES {
+        uuid id PK
+        string name
+        string slug UK
+        string industry
+        string contact_email
+        string phone
+        string address
+        string timezone
+        string status
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    USERS {
+        uuid id PK
+        uuid company_id FK
+        string email UK
+        string hashed_password
+        string full_name
+        string phone
+        string avatar_url
+        boolean is_active
+        boolean is_verified
+        timestamp last_login_at
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    ROLES {
+        uuid id PK
+        string name UK
+        string display_name
+        string description
+        boolean is_system_role
+        timestamp created_at
+    }
+
+    PERMISSIONS {
+        uuid id PK
+        string code UK
+        string name
+        string module
+        string description
+    }
+
+    USER_ROLES {
+        uuid user_id PK,FK
+        uuid role_id PK,FK
+        timestamp assigned_at
+    }
+
+    ROLE_PERMISSIONS {
+        uuid role_id PK,FK
+        uuid permission_id PK,FK
+    }
+
+    REGISTERED_DEVICES {
+        uuid id PK
+        uuid company_id FK
+        uuid user_id FK
+        string device_identifier UK
+        string device_name
+        string model
+        string os_version
+        string app_version
+        string status
+        timestamp last_active_at
+        timestamp registered_at
+        timestamp updated_at
+    }
+
+    USER_INVITATIONS {
+        uuid id PK
+        uuid company_id FK
+        string email
+        uuid role_id FK
+        string token UK
+        string status
+        timestamp expires_at
+        timestamp created_at
+    }
+
+    AUDIT_LOGS {
+        uuid id PK
+        uuid company_id FK
+        uuid actor_id FK
+        string action
+        string resource_type
+        string resource_id
+        string ip_address
+        json metadata
+        timestamp created_at
+    }
+
+    QUESTIONNAIRES {
+        uuid id PK
+        uuid company_id FK
+        uuid created_by FK
+        string title
+        string description
+        string category
+        string status
+        integer current_version
+        timestamp published_at
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    QUESTIONNAIRE_VERSIONS {
+        uuid id PK
+        uuid questionnaire_id FK
+        integer version_number
+        string status
+        json schema_snapshot
+        string changelog
+        timestamp created_at
+    }
+
+    QUESTIONS {
+        uuid id PK
+        uuid questionnaire_id FK
+        string question_text
+        string question_type
+        string help_text
+        boolean is_required
+        integer order_index
+        json validation_rules
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    QUESTION_OPTIONS {
+        uuid id PK
+        uuid question_id FK
+        string label
+        string value
+        integer order_index
+    }
+
+    QUESTION_TRANSLATIONS {
+        uuid id PK
+        uuid question_id FK
+        string language_code
+        string translated_text
+        string translated_help_text
+        json translated_options
+    }
+
+    BRANCHING_RULES {
+        uuid id PK
+        uuid questionnaire_id FK
+        uuid source_question_id FK
+        uuid target_question_id FK
+        string condition_operator
+        string condition_value
+        string action
+        timestamp created_at
+    }
+
+    QUESTIONNAIRE_ELIGIBILITIES {
+        uuid id PK
+        uuid questionnaire_id FK,UK
+        integer min_age
+        integer max_age
+        string allowed_genders
+        json target_cities
+        integer respondent_quota
+    }
+
+    OTP_CONFIGURATIONS {
+        uuid id PK
+        uuid questionnaire_id FK,UK
+        boolean is_otp_required
+        string provider_name
+        integer otp_expiry_seconds
+        integer max_retry_attempts
+    }
+
+    CAMPAIGNS {
+        uuid id PK
+        uuid company_id FK
+        uuid manager_id FK
+        string title
+        string code UK
+        string description
+        string research_category
+        string status
+        float budget
+        date start_date
+        date end_date
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    LOCATIONS {
+        uuid id PK
+        uuid company_id FK
+        uuid parent_id FK
+        string name
+        string code
+        string level
+        float latitude
+        float longitude
+        string address
+        json metadata
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    CAMPAIGN_LOCATIONS {
+        uuid campaign_id PK,FK
+        uuid location_id PK,FK
+        timestamp assigned_at
+    }
+
+    ADVERTISEMENTS {
+        uuid id PK
+        uuid company_id FK
+        uuid campaign_id FK
+        uuid location_id FK
+        string name
+        string ad_type
+        string brand
+        string dimensions
+        string orientation
+        string illumination_type
+        string image_url
+        string status
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    COMPETITORS {
+        uuid id PK
+        uuid company_id FK
+        string name
+        string parent_company
+        string brand_tier
+        string notes
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    COMPETITOR_CAMPAIGNS {
+        uuid id PK
+        uuid competitor_id FK
+        string title
+        string category
+        date start_date
+        date end_date
+        string status
+    }
+
+    COMPETITOR_ADVERTISEMENTS {
+        uuid id PK
+        uuid competitor_campaign_id FK
+        uuid location_id FK
+        string brand
+        string ad_type
+        string dimensions
+        string image_url
+        string notes
+        timestamp recorded_at
+    }
+
+    CAMPAIGN_ASSIGNMENTS {
+        uuid id PK
+        uuid campaign_id FK
+        uuid user_id FK
+        uuid location_id FK
+        uuid questionnaire_id FK
+        date scheduled_date
+        date due_date
+        string priority
+        string status
+        string notes
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    CAMPAIGN_QUESTIONNAIRES {
+        uuid campaign_id PK,FK
+        uuid questionnaire_id PK,FK
+        timestamp linked_at
+    }
+
+    CAMPAIGN_EVIDENCE {
+        uuid id PK
+        uuid campaign_id FK
+        uuid assignment_id FK
+        uuid location_id FK
+        string evidence_type
+        string file_url
+        float latitude
+        float longitude
+        timestamp recorded_at
+        string verification_status
+        json review_notes
+    }

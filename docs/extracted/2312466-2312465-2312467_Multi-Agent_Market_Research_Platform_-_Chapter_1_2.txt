@@ -1,0 +1,354 @@
+=== docs/2312466-2312465-2312467 Multi-Agent Market Research Platform - Chapter 1 2.pdf (Total pages: 12) ===
+
+--- PAGE 1 ---
+Final Year Project Document
+Multi-Agent Market Research
+Platform
+Aroon Kumar (2312466)
+Mudasir Ali (2312465)
+Abdullah Zafar Khan (2312467)
+Supervised by: Mr. Zubair Ahmed
+Department of Department of Computer Science
+Faculty of Computing and Engineering Sciences
+SZABIST University
+SZABIST (Islamabad Campus), Pakistan
+Fall 2026
+
+--- PAGE 2 ---
+Revision History
+Compiled By Checked By Date Description V ersion
+Aroon Kumar Mr. Zubair Ahmed 15 Sept 2026 Section 1 1.0
+Mudasir Ali Mr. Zubair Ahmed 15 Sept 2026 Section 2 1.1
+Abdullah Zafar Khan Mr. Zubair Ahmed 15 Sept 2026 Section 3 1.2
+Aroon Kumar Mr. Zubair Ahmed 16 Sept 2026 Section 4 1.3
+Mudasir Ali Mr. Zubair Ahmed 16 Sept 2026 Section 5 1.4
+Abdullah Zafar Khan Mr. Zubair Ahmed 16 Sept 2026 Section 6 1.5
+Aroon Kumar Mr. Zubair Ahmed 17 Sept 2026 Section 7 1.6
+Mudasir Ali Mr. Zubair Ahmed 17 Sept 2026 Section 8 1.7
+Abdullah Zafar Khan Mr. Zubair Ahmed 17 Sept 2026 Section 9 1.8
+Aroon Kumar Mr. Zubair Ahmed 18 Sept 2026 Section 10 1.9
+Mudasir Ali Mr. Zubair Ahmed 18 Sept 2026 Section 11 2.0
+Abdullah Zafar Khan Mr. Zubair Ahmed 18 Sept 2026 Section 12, 13 2.1
+
+--- PAGE 3 ---
+Chapter 1
+Introduction
+The out-of-home advertising industry reports $ 9.46 billion in revenue, yet market re-
+searchers rely on fragmented data tools. Field workers record GPS coordinates, pho-
+tographs, and surveys across separate applications. This disconnected approach demands
+roughly 50 staff-hours per 100 locations for manual data reconciliation. Analysts struggle
+to verify unmatched field evidence against digital campaign logs.
+The proposed system provides a unified web and Android architecture to eliminate
+these bottlenecks. Administrators structure campaigns through a central web portal.
+Field staff capture observations via the Android application. A local SQLite database
+secures offline submissions and forces incremental synchronization to PostgreSQL servers
+when internet access returns.
+The software deploys specialized artificial intelligence agents to automate analytical
+workflows. Distinct modules coordinate research planning, secondary data extraction,
+and cross-source verification. LangGraph-driven tools evaluate billboard image quality,
+process media attachments, and calculate performance metrics. The automated pipeline
+routes anomalous records directly to human reviewers for final validation.
+Advertising agencies utilize this traceable workflow to publish reliable market intelli-
+gence. The unified pipeline protects data provenance from street-level capture to execu-
+tive reports. Research firms eliminate repetitive manual validation and scale operations
+safely. The following sections describe the system purpose, system scope, development
+objectives, intended market, and target users.
+1.1 Product Purpose
+The proposed system is a centralized web and Android workspace for out-of-home
+advertising research. The unified platform organizes field surveys, GPS coordinates,
+and media attachments inside a secure PostgreSQL database. Older disconnected tools
+make organizations waste fifty staff-hours reconciling data for campaign locations. The
+Android application resolves these specific administrative bottlenecks through SQLite-
+based offline persistence and network synchronization. Specialized artificial intelligence
+agents analyze billboard image quality, cross-reference competitor data, and compile per-
+formance metrics. The automated workflow sends anomalous records directly to human
+reviewers for final validation. The new architecture replaces manual data entry tasks with
+verifiable audience measurement standards. Advertising agencies deploy this traceable
+2
+
+--- PAGE 4 ---
+infrastructure to justify massive brand investments confidently.
+1.2 Product Scope
+Software engineering frameworks define the scope of the proposed system as the strict
+boundaries of development. The system scope identifies the exact deliverables within
+these limits. A clear scope establishes strict expectations for the software lifecycle. The
+approved documentation prevents scope creep during system construction. Development
+managers allocate time and personnel resources based on these defined constraints. The
+stakeholders utilize the finalized scope to lock exact delivery requirements. The official
+scope provides a rigid baseline for software validation. Quality assurance teams check the
+final application against this original baseline [1].
+The following analytical modules outline the exact out-of-home advertising capabili-
+ties of the proposed system. These specific LangGraph and PostgreSQL features define
+what the automated market research platform delivers to agencies.
+Module: User Management
+ Company workspace creation and management.
+ User registration and authentication.
+ Role-based access and permissions.
+ Device registration and authorization.
+ Workflow-based information access.
+ Account activity and audit records.
+Module: Questionnaire Management
+ Market-research questionnaire creation.
+ Support for retail, billboard, competitor and field surveys.
+ Question branching and response validation.
+ English and Urdu questionnaire support.
+ OTP and eligibility controls.
+ Questionnaire version management.
+Module: Campaign Management
+ Multi-market campaign creation and management.
+ Billboard and advertisement registration.
+ Competitor campaign and advertisement records.
+ Hierarchical location management.
+
+--- PAGE 5 ---
+ Field assignment and campaign scheduling.
+ Campaign, location and evidence linking.
+Module: Attendance Verification
+ Field-agent location assignment.
+ Geofence-based attendance verification.
+ GPS-based visit validation.
+ Visit timestamp recording.
+ Location-based attendance records.
+ Supporting visit evidence management.
+Module: Data Synchronization
+ SQLite-based offline data persistence.
+ Incremental data synchronization.
+ Submission queues and retry handling.
+ Synchronization status tracking.
+ Primary collection ID generation and management.
+ Media association using collection IDs.
+Module: Field Data-Collection
+ Android-based field data collection.
+ Assigned campaign and questionnaire access.
+ Offline response and observation capture.
+ GPS and timestamp collection.
+ Photograph and audio capture.
+ Secure local submission storage.
+Module: AI Verification
+ AI-based response quality checking.
+ Evidence consistency verification.
+ On-device preliminary AI processing.
+ Real-time billboard and image analysis.
+ Detection of missing or inconsistent information.
+ Human review routing for uncertain results.
+Module: Market Intelligence
+
+--- PAGE 6 ---
+ Secondary market-data collection.
+ Competitor information collection.
+ Web and document information extraction.
+ Market and competitor comparison.
+ Source and evidence tracking.
+ Multi-market research analysis.
+Module: Media Processing
+ Image capture and management.
+ Audio capture and management.
+ Image quality assessment.
+ Image enhancement where applicable.
+ Audio quality and preprocessing.
+ Media metadata and collection linking.
+Module: Agent Orchestration
+ Research planning agent coordination
+ Data collection and extraction agent coordination.
+ Verification and analysis agent coordination.
+ Automated reporting and dashboard preparation.
+ Coding Agent support for development tasks.
+ Agent permissions, workflow control and human-review handling.
+Module: Field Performance
+ Field-agent activity tracking.
+ Visit and task completion measurement.
+ Evidence-completeness monitoring.
+ Pitch recording and analysis.
+ AI-assisted performance feedback.
+ Performance scores and organization-defined rewards.
+Module: AI-Agent Analytics
+ Interactive market-data visualization.
+ Campaign and location comparison.
+ Market and competitor comparison.
+
+--- PAGE 7 ---
+ Automated AI-generated insights.
+ Dashboard-based research reporting.
+ Role-based analytics views.
+1.3 Objectives
+The software development methodologies define objectives as specific, measurable,
+achievable, relevant, and time-bound statements. These SMART statements translate
+high-level system goals into concrete technical outcomes. The clear objectives guide de-
+velopment priorities for the engineering team. The documented targets dictate proper
+resource allocation throughout the software lifecycle. The system stakeholders use these
+measurable statements to communicate expectations clearly. The finalized objectives pro-
+vide a strict mathematical basis for system validation. The quality assurance evaluators
+compare the final software deliverables against these exact original criteria [2].
+The proposed system delivers twelve functional modules by the final system evalua-
+tion. The User Management module establishes secure company workspaces and strict
+device authorization protocols. The Campaign Management module connects specific
+billboard advertisements to hierarchical market locations. The Field Data-Collection
+module enables offline questionnaire responses through the custom Android application.
+The Data Synchronization module pushes the SQLite records to the PostgreSQL server
+upon internet reconnection. The automatic synchronization tests guarantee zero dupli-
+cate submissions during these network transfers. The Attendance Verification module
+validates field surveyor visits through exact GPS records and geofences. The Media
+Processing module evaluates site photograph quality and preserves direct evidence links.
+The Market Intelligence module gathers secondary out-of-home advertising metrics for
+accurate competitor comparisons. The Agent Orchestration module manages the Lang-
+Graph artificial intelligence agents for research planning and data extraction. The au-
+tomatic AI verification pipeline detects inconsistent survey information instantly. The
+routing algorithm directs uncertain field evidence directly to human reviewers. The Field
+Performance module evaluates visit completion rates and audio pitch recordings. The
+AI-Agent Analytics module presents complex campaign comparisons through interactive
+dashboards. The final evaluation compares manual and multi-agent workflows through
+strict completion time, accuracy, and failure recovery metrics.
+The successful completion of these objectives will fulfill the core purpose of the
+proposed system. The unified architecture will connect fragmented research activities
+with traceable field evidence. The out-of-home advertising agencies will gain a common
+workspace for reliable campaign management and market comparison. The field staff will
+retain their survey submissions securely during sudden connectivity interruptions. The
+robust synchronization protocols will prevent data loss after network reconnection. The
+
+--- PAGE 8 ---
+data analysts will inspect supporting sources and reproduce numerical results effortlessly.
+The company managers will monitor field performance and compare campaign findings
+through automated dashboards. The final evaluation phase will document the specific
+strengths and limitations of the platform under repeatable tests. These measurable out-
+comes will demonstrate the practical connection between the software capabilities and
+the target market requirements.
+1.4 Intended Market of Product
+The system serves more than one market segment. The target customers include
+research companies, advertising agencies and businesses that study their own customers.
+The following subsections explain the needs of each market and how the system supports
+its research work.
+Market Research Companies: The market research segment encompasses small
+consultancies and massive enterprise firms. These organizations collect survey responses
+and supervise field teams across multiple cities. The recent industry reports indicate
+massive data quality problems across this sector. Poor data quality costs these orga-
+nizations millions of dollars annually. The manual reconciliation process requires fifty
+staff-hours for every one hundred campaign locations. The analysts struggle to keep
+GPS coordinates, media files, and survey responses consistent throughout a study. The
+proposed system will eliminate these exact administrative bottlenecks through secure
+company workspaces and offline SQLite collection. A firm will keep campaign responses
+and supporting evidence together automatically during fieldwork. The LangGraph agents
+will inspect source links instantly. The automated verification pipeline will route uncer-
+tain records to human reviewers. The field managers will monitor assignment completion
+through interactive dashboards. The firm will spend significantly less time repeating
+validation tasks. This streamlined workflow will help the firm manage research costs
+effectively. The researchers will present findings to clients with undeniable evidence.
+Advertising and Media Agencies: The advertising agencies plan massive out-of-
+home campaigns for corporate clients. The out-of-home advertising sector generates over
+nine billion dollars in annual revenue. The digital screens represent a massive portion of
+that spending. These agencies need reliable metrics to justify these massive client invest-
+ments. The current evidence arrives as disconnected photographs and paper survey files.
+This fragmented separation makes client reporting incredibly difficult. The executives
+require a reliable method to match field activity against the original campaign plan. The
+PostgreSQL database will connect specific digital advertisements with hierarchical mar-
+ket locations. An agency will utilize these database connections to validate field progress
+accurately. The managers will view surveyor attendance through geofenced dashboards
+before preparing the final campaign report. The direct evidence links will help the agency
+
+--- PAGE 9 ---
+explain performance metrics to executives. The agency will direct future field visits to-
+ward specific evidence gaps. The automated synchronization will prevent field teams from
+submitting duplicate records. The agencies will gain a massive competitive advantage
+through this verifiable audience measurement infrastructure.
+Consumer Brands and Retail Businesses: The retail businesses conduct inde-
+pendent research to understand customer preferences. The target market includes local
+single-outlet shops and massive national brands. These businesses require accurate an-
+swers about competitor messaging and market differences. The internal staff members
+combine web survey files with physical field observations manually. The executives strug-
+gle to compare campaign results across different geographical locations. The manual
+data entry limits their ability to assess actual brand awareness. The proposed system
+will resolve these bottlenecks through configurable questionnaires and secondary market
+intelligence tools. A business will gather customer feedback reliably through the cus-
+tom Android application. The company managers will compare competitor campaigns
+through the central web portal. The retail staff will spend less time matching spreadsheets
+together. The data analysts will have more time to examine actual customer feedback.
+The brand executives will utilize these verified findings to allocate future research budgets
+confidently. The organizations will deploy the artificial intelligence dashboards to track
+long-term consumer trends. The automated platform will enable smarter operational
+decisions for these retail chains.
+1.5 Intended Users of the Product
+The proposed system supports six distinct user groups across the market research
+lifecycle. Each professional group handles a different stage of the out-of-home advertising
+workflow. The following subsections define the specific administrative responsibilities of
+these users. The descriptions explain exactly how the new platform will assist each group.
+Company Administrators: The company administrators control access to the cen-
+tral workspace. These technical users manage role permissions across fragmented software
+systems currently. The administrators struggle to secure data across disconnected field
+applications. The administrators will utilize the User Management module to create se-
+cure agency accounts. They will assign specific platform roles to managers, analysts, and
+field staff. The IT personnel will register authorized Android devices through the web
+portal. The system will restrict unauthorized mobile access automatically. The admin-
+istrators will monitor account activity through immutable audit logs. These centralized
+controls will reduce repeated permission changes significantly. The security team will in-
+vestigate access problems much faster. The agencies will protect their sensitive campaign
+data effectively.
+Research Managers: The research managers translate client briefs into concrete
+
+--- PAGE 10 ---
+field assignments. These supervisors coordinate out-of-home advertising campaigns across
+multiple cities. The managers waste valuable hours gathering progress updates from
+separate field teams. The managers will use the Campaign Management module to
+assign specific billboard locations. They will configure complex branching rules within
+the Questionnaire Management module. The team leaders will coordinate the LangGraph
+artificial intelligence agents for automated data extraction. The managers will monitor
+field surveyor progress through real-time geofenced dashboards. The system will highlight
+missing evidence before the final reporting phase begins. This automated tracking will
+reduce the fifty staff-hours typically spent on manual coordination. The managers will
+deploy additional field resources toward specific evidence gaps efficiently.
+Field Staff: The field staff visit assigned street locations to record billboard con-
+ditions. These surveyors ask audience questions and capture physical site photographs.
+Bad internet connections ruin their digital survey submissions. The field workers will
+use the custom Android application to view their daily campaign assignments. The sur-
+veyors will capture photographs, audio notes, and GPS coordinates offline. The SQLite
+database will store all pending submissions locally during internet outages. The Data
+Synchronization module will push these records to the PostgreSQL server upon network
+reconnection. The Attendance Verification module will validate their physical presence
+through strict geofences. The system will grade their task completion rates and pitch
+recordings automatically. The reliable offline architecture will prevent frustrating data
+loss completely.
+Research Analysts: The research analysts evaluate collected survey responses and
+secondary market data. These professionals build client dashboards using fragmented
+spreadsheet files. The analysts struggle to match raw field photographs with the correct
+digital campaign logs. The data analysts will use the Market Intelligence module to
+compare competitor metrics accurately. The AI-Agent Analytics module will generate
+complex visualizations for out-of-home advertising campaigns. The LangGraph reporting
+agents will assist the analysts with heavy numerical calculations. The direct database
+links will allow analysts to trace every metric back to its original field photograph. The
+automated pipeline will calculate performance indicators against strict reference formulas.
+The analysts will access related survey records instantly. The agencies will deliver highly
+traceable market reports to their corporate clients.
+Evidence Reviewers: The evidence reviewers examine anomalous records that fail
+automatic quality checks. These quality assurance workers validate missing or inconsis-
+tent field data manually. The reviewers waste extreme effort searching through separate
+media folders to find supporting photographs. The reviewers will evaluate uncertain
+survey submissions through the central web portal. The AI Verification pipeline will
+route questionable field records directly to these human workers. The Media Processing
+
+--- PAGE 11 ---
+module will display the original respondent answers alongside the site photographs. The
+reviewers will accept, correct, or exclude the flagged data according to strict agency pro-
+cedures. The unified database will eliminate the need to search for missing media files
+manually. The quality assurance team will resolve data anomalies rapidly. The reviewers
+will guarantee absolute data accuracy for the final market analysis.
+Survey Respondents: The survey respondents answer targeted questions about
+specific advertising campaigns. These everyday consumers participate through web links
+or physical street interviews. The poorly designed paper forms often confuse these par-
+ticipants with irrelevant questions. The respondents will complete digital questionnaires
+through the company website or surveyor devices. The branching logic will direct each
+consumer strictly to relevant campaign questions. The software will display forms in both
+English and Urdu languages. The instant validation prompts will point out incomplete
+answers immediately. The OTP eligibility controls will verify the authenticity of remote
+participants. The consumers will spend significantly less time reading unrelated survey
+sections. The clear digital interface will provide a much better experience for the general
+public. The system will capture accurate audience feedback effortlessly.
+
+--- PAGE 12 ---
+References
+[1] I. Sommerville, “Software Engineering, 10th ed.,” [Online]. Available:
+https://iansommerville.com/software-engineering-book/. [Accessed: Oct. 23,
+2026].
+[2] Project Management Institute, “A Guide to the Project Management
+Body of Knowledge (PMBOK Guide), 7th ed.,” [Online]. Available:
+https://www.pmi.org/pmbok-guide-standards/foundational/pmbok. [Accessed:
+Oct. 23, 2026].
+11
+

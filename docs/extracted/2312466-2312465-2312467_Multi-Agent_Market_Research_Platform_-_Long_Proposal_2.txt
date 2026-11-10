@@ -1,0 +1,523 @@
+=== docs/2312466-2312465-2312467 Multi-Agent Market Research Platform - Long Proposal 2.pdf (Total pages: 17) ===
+
+--- PAGE 1 ---
+Final Year Project Long Proposal
+Multi-Agent Market Research
+Platform
+Aroon Kumar (2312466)
+Mudasir Ali (2312465)
+Abdullah Zafar Khan (2312467)
+Supervised by: Mr. Zubair Ahmed
+Department of Department of Computer Science
+Faculty of Computing and Engineering Sciences
+SZABIST University
+SZABIST (Islamabad Campus), Pakistan
+Fall 2026
+
+--- PAGE 2 ---
+Revision History
+Compiled By Checked By Date Description V ersion
+Aroon Kumar Mr. Zubair Ahmed 15 Sept 2026 Section 1 1.0
+Mudasir Ali Mr. Zubair Ahmed 15 Sept 2026 Section 2 1.1
+Abdullah Zafar Khan Mr. Zubair Ahmed 15 Sept 2026 Section 3 1.2
+Aroon Kumar Mr. Zubair Ahmed 16 Sept 2026 Section 4 1.3
+Mudasir Ali Mr. Zubair Ahmed 16 Sept 2026 Section 5 1.4
+Abdullah Zafar Khan Mr. Zubair Ahmed 16 Sept 2026 Section 6 1.5
+Aroon Kumar Mr. Zubair Ahmed 17 Sept 2026 Section 7 1.6
+Mudasir Ali Mr. Zubair Ahmed 17 Sept 2026 Section 8 1.7
+Abdullah Zafar Khan Mr. Zubair Ahmed 17 Sept 2026 Section 9 1.8
+Aroon Kumar Mr. Zubair Ahmed 18 Sept 2026 Section 10 1.9
+Mudasir Ali Mr. Zubair Ahmed 18 Sept 2026 Section 11 2.0
+Abdullah Zafar Khan Mr. Zubair Ahmed 18 Sept 2026 Section 12, 13 2.1
+
+--- PAGE 3 ---
+1. Project Description
+Professionals in outdoor advertising research pull data from scattered sources. Ana-
+lysts process digital campaign logs, physical photographs, GPS coordinates, and paper
+surveys every day. Managing these disconnected pieces across multiple cities creates a
+massive administrative workload. Field staff currently run different software applications
+for different tasks. This disjointed approach makes it difficult to match a specific photo-
+graph to an exact street location. Office workers waste hours sorting loose files before they
+even start evaluating market trends. The industry requires a single platform to secure
+this evidence and drive the workflow directly from street capture to the final review.
+The proposed system will operate as a central workspace to manage research from
+initial planning to the final report. The architecture will avoid bulky, all-in-one software
+designs. It will instead deploy a network of specialized AI agents to handle the workload.
+Specific agents will take over distinct tasks, like collecting field metrics, running quality
+checks, and drafting summaries. Each tool will finish its step and pass a clean data file
+to the next agent in the sequence. A central database will anchor these moving parts
+to track every source accurately. Whenever the automated tools spot messy data, the
+system will flag those items for manual human review. The platform will establish a
+reliable, end-to-end process built specifically for market analysis.
+The new platform directly connects every research question to the raw field evidence
+and the final reports. This traceable workflow provides teams with a dependable method
+for market research. The unified architecture actively prevents common mistakes caused
+by manual data management. Companies experience real operational improvements from
+this direct connection. Field teams significantly reduce their administrative workloads.
+Managers verify the submitted data much faster. Analysts publish the final reports
+earlier.
+The new system resolves immediate logistical bottlenecks. The platform also provides
+a flexible base for future projects. Organizations easily plug in new data streams without
+breaking the core pipeline. System administrators quickly assign different AI agents.
+This structural design allows agencies to scale operations safely. Research teams maintain
+complete visibility over their information. Executives base their final decisions on hard
+facts.
+2. Real World Problem
+The out-of-home (OOH) advertising industry generates massive amounts of data as it
+grows. This rapid expansion creates a strict demand for reliable evidence management.
+The sector reports a record $ 9.46 billion in revenue for 2025. This figure marks nineteen
+consecutive quarters of financial growth. Digital screens now account for 36.3% of that
+
+--- PAGE 4 ---
+total market. Brands spend heavily on these physical spaces. Advertising agencies require
+consistent and transparent campaign measurement across all media types to justify these
+brand investments. Geopath and the Out of Home Advertising Association of America
+currently manage a new audience measurement initiative launched in March 2026 to
+address these exact demands. The modern market simply needs stronger infrastructure
+to process complex performance data and hold operators accountable.
+Within the target organization, these challenges are reflected in a research workflow
+in which survey responses, campaign details, field photographs, location information,
+spreadsheet calculations, and web references are maintained through separate activities.
+Researchers must manually reconcile these sources before comparing locations, time peri-
+ods, or campaigns, while missing collection dates, duplicate responses, inconsistent nam-
+ing, and unsupported information can complicate verification and analysis. The current
+process also requires separate effort for planning research, collecting information, extract-
+ing relevant content, checking data quality, verifying evidence, performing analysis, and
+preparing reports. These activities correspond to distinct functions that can be handled
+through specialized agents: a research planning agent can structure the research require-
+ments; data collection agents can gather information from permitted sources; an infor-
+mation extraction agent can organize collected content; quality and verification agents
+can identify inconsistencies, duplicates, missing information, and unsupported claims;
+and analysis and reporting agents can process validated evidence and produce traceable
+findings.
+If these gaps remain, the organization will face ongoing costs for manual data prepa-
+ration, reconciliation, verification, and reporting. The likelihood of inconsistent or poorly
+supported findings will also increase as campaign volumes grow. Broader data-quality
+research will highlight the same concern: an IBM Institute for Business Value report pub-
+lished in 2026 will show that 43% of chief operating officers identify data quality as their
+main data priority, while more than one-quarter of organizations report annual losses
+above US$ 5 million due to poor data quality. For the target organization, the workload
+will provide a direct basis for estimating operational costs. A campaign covering 100
+locations will require 50 staff-hours for manual reconciliation alone, based on 30 minutes
+per location, before verification and reporting are included. Higher campaign volumes
+will increase both labor demands and processing time.
+
+--- PAGE 5 ---
+3. Project Stream
+✓ Web-Based FYP Desktop Application
+✓ Mobile App Game
+Hardware-Based
+4. Modules
+Table 1 provides a breakdown of the modules within the proposed system and the stu-
+dents assigned to each module based on the deadlines, clearly presenting the distribution
+of responsibilities across the development phases.
+Table 1: Module Breakdown and Assignment
+Deadline Modules Student
+P1 Mid User Management Aroon Kumar (2312466)
+Questionnaire Management Mudasir Ali (2312465)
+Campaign Management Abdullah Zafar Khan (2312467)
+P1 Final Attendance Verification Aroon Kumar (2312466)
+Data Synchronization Mudasir Ali (2312465)
+Field Data-Collection Abdullah Zafar Khan (2312467)
+P2 Mid AI Verification Aroon Kumar (2312466)
+Market Intelligence Mudasir Ali (2312465)
+Media Processing Abdullah Zafar Khan (2312467)
+P2 Final Agent Orchestration Aroon Kumar (2312466)
+Field Performance Mudasir Ali (2312465)
+AI-Agent Analytics Abdullah Zafar Khan (2312467)
+5. Names of existing similar FYPs (if repeated)
+None.
+6. New Functionalities (main) to be added Features
+N/A.
+
+--- PAGE 6 ---
+7. Development Environment
+Tools: Python, FastAPI, React, TypeScript, Flutter, Dart, LangGraph, Git, REST
+API client, Docker, browser developer tools
+DBMS: PostgreSQL, SQLite
+Platform: Visual Studio Code, Android Studio
+8. Introduction
+Market researchers collect and analyse information to answer business and market
+questions. Researchers collect primary data directly for a specific study through ques-
+tionnaire responses, field observations, photographs, GPS records, and interviews. Re-
+searchers obtain secondary data from existing sources, including websites, reports, pub-
+lic databases, market publications, and competitor records. In outdoor advertising, re-
+searchers use both types of data to evaluate campaigns. Field workers record a billboard’s
+location and condition during site visits, while questionnaires capture audience responses
+and secondary sources provide market or competitor information. The system organizes
+these different sources, verifies the collected information, and links each record to its
+original source.
+The proposed platform provides a coordinated workflow for market research across
+multiple markets, campaigns, and locations. It manages campaigns and locations, re-
+search questionnaires, and Android-based field collection. The system also handles ge-
+ofenced attendance and visit verification, offline data storage, incremental synchroniza-
+tion, media management, secondary data collection, quality checks, and cross-source ver-
+ification. Specialized AI agents support research planning, data collection, information
+extraction, verification, analysis, dashboard preparation, reporting, and coding tasks. Se-
+lected AI models also run on mobile devices to perform preliminary analysis of images,
+audio, and field data. An analytics dashboard visualizes and compares collected data.
+Human reviewers remain involved in disputed or exceptional cases.
+The text below previews the core industry challenges before setting up the boundaries
+and main goals of the proposed system. Subsequent chapters will break down the overall
+architecture, paying close attention to data syncing routines and AI agent pipelines. The
+documentation will then list the required development tools, quality checks, performance
+metrics, and the rollout timeline. To wrap up, a practical walkthrough will illustrate how
+the platform handles raw field evidence through automated pipelines to produce the final
+analytical reports.
+
+--- PAGE 7 ---
+9. Application Review
+This section evaluates three established platforms: Qualtrics, SurveyMonkey, and
+ODK, to measure their standard capabilities. The review examines how each software
+handles routine questionnaires, field data collection without internet access, location
+tracking, and media uploads. Placing these existing features side-by-side with the re-
+quirements of the proposed system exposes clear technical limitations. Uncovering these
+missing functions clarifies the specific features and custom tools that the new architecture
+must build.
+Qualtrics: Qualtrics provides web and mobile interfaces for designing, launching,
+and reviewing surveys. Field researchers use the Qualtrics Offline Surveys application
+on iOS and Android devices to download forms, capture entries offline, and upload them
+once connectivity returns. The software logs GPS coordinates with each submission
+and supplies basic visualization tools for initial summaries. However, official product
+documentation indicates that the platform misses core requirements for outdoor adver-
+tising workflows. The software does not provide registries for billboards and campaigns,
+geofenced attendance verification, or hierarchical site management. It also omits auto-
+mated evidence validation, on-device artificial intelligence processing, pitch analysis, and
+coordinated research agents [1].
+The main features of the Application are listed below:
+ Web-based survey creation and distribution.
+ Offline survey collection through mobile devices.
+ Android and iOS support for offline collection.
+ Geolocation data associated with survey responses.
+ Device identification for collected responses.
+ Survey response management and analysis.
+ Results dashboards with charts, tables, filters, and visualizations.
+ User permissions and controlled access to survey results.
+The limitations of the application are listed below:
+ The offline application does not support every survey feature.
+ Access to offline collection depends on the required account permissions.
+ The documented workflow focuses on survey collection and analysis rather than a
+dedicated billboard or campaign registry.
+ The reviewed documentation does not describe geofenced attendance linked to as-
+signed campaign locations.
+
+--- PAGE 8 ---
+ The reviewed documentation does not describe a dedicated workflow for campaign-
+linked photographs, audio, attendance evidence, and cross-source verification.
+ The reviewed documentation does not establish mobile AI processing, billboard
+scoring, pitch analysis, or coordinated research and coding agents.
+ Although dashboards and access controls are available, the reviewed documentation
+does not establish a field-agent performance dashboard with organization-defined
+scoring and reward workflows.
+SurveyMonkey: SurveyMonkey manages questionnaire design, distribution, and
+response filtering, using web and mobile applications to display chart-based analytics.
+Teams perform offline field collection on iOS and Android devices through the Survey-
+Monkey anywhere mobile application. Users cache surveys before entering disconnected
+areas and sync data when the network signal returns. The platform handles basic field
+polling effectively, but subscription tiers restrict several advanced offline functions. The
+system also omits the specialized capabilities required for outdoor advertising research.
+The platform does not offer a dedicated billboard registry, geofenced visit verification,
+hierarchical location structuring, SQLite-based offline-first persistence with incremental
+sync, mobile AI processing, pitch analysis, or multi-agent research and coding workflows
+[2].
+The main features of the Application are listed below:
+ Questionnaire creation and distribution.
+ Mobile survey administration.
+ Offline response collection through SurveyMonkey Anywhere.
+ Upload of collected responses after reconnection.
+ Response status and collection metadata.
+ Result filtering and comparison.
+ Charts and survey-result visualization.
+ Device management and user access controls.
+The limitations of the application are listed below:
+ Offline mode is restricted to compatible survey configurations and is not available
+for all survey features.
+ Offline functionality requires the appropriate account access and configuration.
+ The reviewed documentation does not describe a dedicated billboard or campaign
+registry.
+
+--- PAGE 9 ---
+ The reviewed documentation does not describe hierarchical market locations linked
+to assigned field visits.
+ Standard offline survey collection does not establish the proposed geofenced atten-
+dance and visit-evidence workflow.
+ The reviewed documentation does not establish the proposed SQLite-based offline-
+first architecture with incremental synchronization and explicit synchronization
+queues.
+ The reviewed documentation does not establish mobile-side AI for image-quality
+analysis, billboard scoring, or audio processing.
+ The reviewed documentation does not establish automated field-performance scor-
+ing, pitch analysis, or AI-agent orchestration.
+ODK: Open Data Kit (ODK) facilitates structured field-data collection by pairing
+the ODK Collect Android app with a central management server, ODK Central. Field
+teams use ODK Collect to complete offline forms, capture media, and record location
+data in low-connectivity environments. On the administrative side, ODK Central handles
+workspace security, user roles, form templates, and data exports to external analytical
+software. Although ODK excels at rugged field data collection, it omits several core
+capabilities vital for commercial out-of-home advertising research. Built-in functionality
+does not extend to billboard and campaign registries, geofenced attendance tracking, spe-
+cialized market-research tools, mobile AI processing, image-quality enhancement, pitch
+analysis, automated dashboard generation, or coordinated research and coding workflows
+[3].
+The main features of the Application are listed below:
+ Android-based field data collection.
+ Offline form completion and storage.
+ Structured forms with logic and validation.
+ Location and geospatial data collection.
+ Image, audio, and video capture.
+ Form and submission management.
+ User roles and permissions within the proposed system.
+ Centralized submission review and external analysis connections.
+The limitations of the application are listed below:
+ ODK provides general-purpose field collection rather than a dedicated billboard
+and campaign-management workflow.
+
+--- PAGE 10 ---
+ The reviewed documentation does not establish a built-in geofence-based atten-
+dance system linked to assigned campaign locations.
+ The documented location functionality captures geographic information but does
+not establish the proposed hierarchical location and attendance workflow.
+ The reviewed documentation does not establish the proposed market-research-
+specific questionnaire controls and campaign evidence structure.
+ The reviewed documentation does not establish mobile-side AI processing for image-
+quality assessment or real-time billboard analysis.
+ The reviewed documentation does not establish automated market-research dash-
+board generation and AI-generated insights as part of the standard collection work-
+flow.
+ The reviewed documentation does not establish pitch analysis or field-performance
+measurement.
+ The reviewed documentation does not establish coordinated research agents or a
+Coding Agent integrated with the collection and analysis workflow.
+Table 2 provides a side-by-side comparison of the three reviewed market research
+platforms and the proposed system. The proposed system is presented as a separate
+column to clearly distinguish its scope and functionality from the existing platforms.
+Table 2: Comparison of Reviewed Applications
+F eatures
+ApplicationsQualtrics [1]
+SurveyMonkey [2]
+ODK [3]
+Proposed System
+Web Questionnaires ✓ ✓ ✓ ✓
+Offline Mobile Collection ✓ ✓ ✓ ✓
+Android Field Collection ✓ ✓ ✓ ✓
+Media Capture ✓ ✓ ✓ ✓
+Location Capture ✓ ✗ ✓ ✓
+User Permissions ✓ ✓ ✓ ✓
+Analytics Dashboard ✓ ✓ ✗ ✓
+Billboard Registry ✗ ✗ ✗ ✓
+Multi-Market Management ✗ ✗ ✗ ✓
+Hierarchical Locations ✗ ✗ ✗ ✓
+Geofenced Attendance ✗ ✗ ✗ ✓
+Continued on next page
+
+--- PAGE 11 ---
+Table 2 – Continued from previous page
+F eatures
+ApplicationsQualtrics [1]
+SurveyMonkey [2]
+ODK [3]
+Proposed System
+Visit Evidence ✗ ✗ ✗ ✓
+Offline-First SQLite ✗ ✗ ✗ ✓
+Incremental Synchronization ✗ ✗ ✗ ✓
+Media-Linked Records ✗ ✗ ✓ ✓
+Mobile AI Processing ✗ ✗ ✗ ✓
+Image Quality Analysis ✗ ✗ ✗ ✓
+Automated Insights ✗ ✗ ✗ ✓
+Field Performance Analysis ✗ ✗ ✗ ✓
+AI Agent Orchestration ✗ ✗ ✗ ✓
+10. Problem Statement
+Market research teams face difficulties when they use separate tools for data collection,
+verification, and analysis. Traditional software supports simple survey forms, but field
+crews encounter problems when staff members record GPS coordinates, site photos, audio
+notes, and research findings in different applications. Separate storage systems force staff
+members to cross-reference multiple databases manually. Fragmented data systems also
+weaken the connection between raw field evidence and final market conclusions.
+Managing data across disconnected tools creates heavy manual workloads for both
+field crews and office analysts. Researchers spend valuable hours matching site visits
+against specific billboard locations. Field staff frequently lose survey entries when mobile
+signals drop, leaving stray photos or audio files disconnected from their questionnaire
+records. Whenever information goes missing or fails to match, teams must stop and fix
+the errors manually before they can evaluate broader market trends. These recurring
+administrative bottlenecks slow down data verification, dashboard updates, and final
+client reporting.
+Extended workloads and fragmented workflows will force organizations to rely heavily
+on manual coordination and repeated validation steps as research volume increases. The
+resulting heavy reliance will restrict the speed at which research can guide business deci-
+sions and will prevent teams from building consistent, reusable processes across different
+markets. Furthermore, this scattered approach will block companies from adopting auto-
+
+--- PAGE 12 ---
+mated artificial intelligence for field performance tracking, pitch evaluation, and real-time
+evidence processing. Consequently, valuable market insights will remain trapped behind
+slow, manual reviews.
+11. Scope
+The proposed system will cover the design, development, testing, and deployment of
+a web-based management and analytics platform with an Android application. It will
+support multiple market-research activities across markets and locations, including field
+collection, offline synchronization, geofenced attendance, media processing, AI-assisted
+analysis, competitor research, field-performance measurement, and automated reporting.
+Module: User Management
+ Company workspace creation and management.
+ User registration and authentication.
+ Role-based access and permissions.
+ Device registration and authorization.
+ Workflow-based information access.
+ Account activity and audit records.
+Module: Questionnaire Management
+ Market-research questionnaire creation.
+ Support for retail, billboard, competitor, and field surveys.
+ Question branching and response validation.
+ English and Urdu questionnaire support.
+ OTP and eligibility controls.
+ Questionnaire version management.
+Module: Campaign Management
+ Multi-market campaign creation and management.
+ Billboard and advertisement registration.
+ Competitor campaign and advertisement records.
+ Hierarchical location management.
+ Field assignment and campaign scheduling.
+ Campaign, location, and evidence linking.
+Module: Attendance Verification
+
+--- PAGE 13 ---
+ Field-agent location assignment.
+ Geofence-based attendance verification.
+ GPS-based visit validation.
+ Visit timestamp recording.
+ Location-based attendance records.
+ Supporting visit evidence management.
+Module: Data Synchronization
+ SQLite-based offline data persistence.
+ Incremental data synchronization.
+ Submission queues and retry handling.
+ Synchronization status tracking.
+ Primary collection ID generation and management.
+ Media association using collection IDs.
+Module: Field Data-Collection
+ Android-based field data collection.
+ Assigned campaign and questionnaire access.
+ Offline response and observation capture.
+ GPS and timestamp collection.
+ Photograph and audio capture.
+ Secure local submission storage.
+Module: AI Verification
+ AI-based response quality checking.
+ Evidence consistency verification.
+ On-device preliminary AI processing.
+ Real-time billboard and image analysis.
+ Detection of missing or inconsistent information.
+ Human review routing for uncertain results.
+Module: Market Intelligence
+ Secondary market-data collection.
+ Competitor information collection.
+ Web and document information extraction.
+
+--- PAGE 14 ---
+ Market and competitor comparison.
+ Source and evidence tracking.
+ Multi-market research analysis.
+Module: Media Processing
+ Image capture and management.
+ Audio capture and management.
+ Image quality assessment.
+ Image enhancement where applicable.
+ Audio quality and preprocessing.
+ Media metadata and collection linking.
+Module: Agent Orchestration
+ Research planning agent coordination.
+ Data collection and extraction agent coordination.
+ Verification and analysis agent coordination.
+ Automated reporting and dashboard preparation.
+ Coding Agent support for development tasks.
+ Agent permissions, workflow control, and human-review handling.
+Module: Field Performance
+ Field-agent activity tracking.
+ Visit and task completion measurement.
+ Evidence-completeness monitoring.
+ Pitch recording and analysis.
+ AI-assisted performance feedback.
+ Performance scores and organization-defined rewards.
+Module: AI-Agent Analytics
+ Interactive market-data visualization.
+ Campaign and location comparison.
+ Market and competitor comparison.
+ Automated AI-generated insights.
+ Dashboard-based research reporting.
+ Role-based analytics views.
+
+--- PAGE 15 ---
+12. Significance
+The proposed system will make billboard research easier to trace from the initial
+question to the final result. Researchers will be able to inspect which questionnaire
+version produced a measure, which records were excluded, and which source supports
+a statement. Field staff will have a defined route for submitting observations, while
+analysts will work with campaign-linked evidence and consistent calculation rules. The
+system will also provide documented calculations, source references, review records, and
+controlled reporting for authorised users.
+The proposed system will provide research teams with a coordinated workflow that
+reduces repeated movement of information between questionnaires, spreadsheets, media
+folders, evidence records, and reports. Companies will be able to manage campaign
+information, field observations, audience responses, and supporting sources within defined
+workflows. The system will also provide a basis for comparing manual, single-agent, and
+multi-agent approaches through measured task performance. Its organisational value will
+therefore be assessed through evidence rather than assumed time or cost savings.
+The proposed system represents an evaluated implementation of specialised agents
+within a constrained market research workflow. It examines how coordinated agents
+support selected research tasks while preserving human review when evidence is disputed
+or operations fail. Numerical correctness, source support, abstention, and recovery from
+failures are evaluated separately so that generated explanations remain connected to
+their supporting evidence. Consent, clear questionnaire wording, and visible sampling
+limitations also support responsible research and clearer interpretation of findings.
+13. Tools and Techniques
+The proposed system uses web, mobile, backend, database, artificial intelligence, data
+processing, evidence retrieval, and security technologies. The selected tools support re-
+search planning, offline field collection, evidence management, data analysis, and report
+generation. The selected technologies also support the implementation and evaluation of
+the system’s functional modules effectively.
+ Frontend Tools: React and TypeScript will provide the company portal, ques-
+tionnaire website, interactive dashboards, and reporting interfaces. Flutter and
+Dart will provide the Android field application, including offline questionnaires,
+local submission queues, and synchronisation functions.
+ Backend Tools: The backend services will use Python for application logic and
+data processing. The backend services will use FastAPI for authenticated requests
+and operations. The backend services will handle campaigns, questionnaires, sub-
+missions, media, research runs, evidence, analysis, and reporting. The backend
+
+--- PAGE 16 ---
+services will use REST APIs to connect the web application and mobile applica-
+tion.
+ Database and Storage: The database system will use PostgreSQL to store com-
+pany, campaign, billboard, questionnaire, submission, claim, source, and report
+records. The mobile application will use SQLite to store queued field submissions
+on Android devices. The storage system will use object storage for permitted pho-
+tographs and documents. The evidence retrieval system will use pgvector to retrieve
+authorised evidence.
+ AI Techniques: LangGraph will coordinate bounded research agents through de-
+fined states for planning, collection, extraction, quality review, verification, analysis,
+and reporting. Retrieval-augmented generation will connect responses to authorised
+evidence, while controlled prompts, tool permissions, execution limits, and human
+review points will constrain agent operations.
+ Data Processing: The data processing tools will include pandas and NumPy.
+These tools will support data cleaning, transformation, aggregation, and indicator
+calculations. The statistical analysis tools will include SciPy for selected statistical
+procedures. The analytical functions will calculate campaign measures and provide
+reference results for system evaluation.
+ Evidence Retrieval: Approved public web sources and user-provided documents
+will be processed through structured extraction and retrieval techniques. Source
+identifiers, retrieval dates, passages, dataset versions, and claim-to-source links will
+be retained so generated findings can be traced to supporting evidence.
+ Security and Testing: The security controls will include role-based access con-
+trol, company-level permissions, authenticated requests, app-scoped device identi-
+fiers, audit records, and protected local storage. The development process will use
+Docker, Git, code review, reproducible test fixtures, and automated test cases for
+controlled development and system evaluation.
+
+--- PAGE 17 ---
+References
+[1] Qualtrics, “Qualtrics Survey Platform,” [Online]. Available:
+https://www.qualtrics.com/ [Accessed: Sep. 16, 2026].
+[2] SurveyMonkey, “SurveyMonkey,” [Online]. Available:
+https://www.surveymonkey.com/ [Accessed: Sep. 16, 2026].
+[3] ODK, “ODK.” [Online]. Available: https://getodk.org/ [Accessed: Sep. 16, 2026].
+

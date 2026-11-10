@@ -1,0 +1,70 @@
+=== docs/2312466-2312465-2312467 Multi-Agent Market Research Platform - One Pager 2.pdf (Total pages: 3) ===
+
+--- PAGE 1 ---
+Final Year Project Short Proposal
+Multi-Agent Market Research
+Platform
+Aroon Kumar (2312466)
+Mudasir Ali (2312465)
+Abdullah Zafar Khan (2312467)
+Supervised by: Mr. Zubair Ahmed
+Department of Department of Computer Science
+Faculty of Computing and Engineering Sciences
+SZABIST University
+SZABIST (Islamabad Campus), Pakistan
+Fall 2026
+
+--- PAGE 2 ---
+Purpose
+Businesses and researchers need reliable findings without spending so much time gath-
+ering and checking the same information. The proposed system brings research work
+together to reduce repetitive tasks and help teams assess their evidence. Its purpose is
+to make market research easier to manage and business decisions easier to justify.
+Introduction
+Market research teams often work with survey files, field records and online sources
+that sit in separate places. Researchers spend time matching and checking these records
+before analysis can begin. The proposed system uses cooperating AI agents to reduce
+this manual work and help teams explain the evidence behind their findings.
+Targeted Audience
+The main users are market researchers, data analysts and business strategists who
+compare customer feedback and campaign results. These users need a clear link between
+findings and evidence. Business owners and company managers form the secondary au-
+dience, particularly when they conduct research without a dedicated analysis team.
+Product Functions and Features
+The system uses AI agents to plan research, collect web information and extract
+relevant details. Researchers examine survey responses alongside secondary sources. The
+system cleans data and compares sources to identify gaps or conflicting information for
+review. Users compare competitors and results across different periods to understand
+market changes. Interactive dashboards present these comparisons, and users adjust
+the views through natural language commands. Users ask the conversational assistant
+questions about the research data and receive answers with links to supporting evidence.
+Human reviewers assess uncertain records before those records enter the analysis.
+Social and Industrial Impact
+For research teams, the main gain will be time. They will no longer match records
+manually. Their effort will instead go into interpreting findings. Smaller businesses and
+independent researchers will use analysis tools without hiring a large team. Consumers
+will give feedback through online questionnaires or field interviews. The interviews will
+reach places with limited internet access.
+Companies will turn the findings into campaign plans and decide where to put their
+research budgets. Researchers will back up their conclusions with supporting records.
+This will let others check the work and make research more accountable.
+
+--- PAGE 3 ---
+Department of Department of Computer Science
+Faculty of Computing and Engineering Sciences
+SZABIST University
+SZABIST (Islamabad Campus), Pakistan
+Final Year Project (Bachelor of Computer Science)
+Supervisor Consent Form
+I accept the supervision of the following students with details as follows
+Project Title: Multi-Agent Market Research Platform
+Student#1 Name &
+Registration Number Aroon Kumar (2312466)
+Student#2 Name &
+Registration Number Mudasir Ali (2312465)
+Student#3 Name &
+Registration Number Abdullah Zafar Khan (2312467)
+Supervised By: Mr. Zubair Ahmed
+Signature:
+Date: 13 September 2026
+

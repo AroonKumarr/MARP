@@ -1,0 +1,503 @@
+=== docs/2312466-2312465-2312467 Multi-Agent Market Research Platform - Chapter-2 2.pdf (Total pages: 16) ===
+
+--- PAGE 1 ---
+Final Year Project Document
+Multi-Agent Market Research
+Platform
+Chapter 2 — Background and Literature Review
+Aroon Kumar (2312466)
+Mudasir Ali (2312465)
+Abdullah Zafar Khan (2312467)
+Supervised by: Mr. Zubair Ahmed
+Department of Department of Computer Science
+Faculty of Computing and Engineering Sciences
+SZABIST University
+SZABIST (Islamabad Campus), Pakistan
+Fall 2026
+
+--- PAGE 2 ---
+Revision History
+Compiled By Checked By Date Description V ersion
+Aroon Kumar Mr. Zubair Ahmed 15 Sept 2026 Section 1 1.0
+Mudasir Ali Mr. Zubair Ahmed 15 Sept 2026 Section 2 1.1
+Abdullah Zafar Khan Mr. Zubair Ahmed 15 Sept 2026 Section 3 1.2
+Aroon Kumar Mr. Zubair Ahmed 16 Sept 2026 Section 4 1.3
+Mudasir Ali Mr. Zubair Ahmed 16 Sept 2026 Section 5 1.4
+Abdullah Zafar Khan Mr. Zubair Ahmed 16 Sept 2026 Section 6 1.5
+Aroon Kumar Mr. Zubair Ahmed 17 Sept 2026 Section 7 1.6
+Mudasir Ali Mr. Zubair Ahmed 17 Sept 2026 Section 8 1.7
+Abdullah Zafar Khan Mr. Zubair Ahmed 17 Sept 2026 Section 9 1.8
+Aroon Kumar Mr. Zubair Ahmed 18 Sept 2026 Section 10 1.9
+Mudasir Ali Mr. Zubair Ahmed 18 Sept 2026 Section 11 2.0
+Abdullah Zafar Khan Mr. Zubair Ahmed 18 Sept 2026 Section 12, 13 2.1
+
+--- PAGE 3 ---
+Chapter 2
+Background and Literature Review
+A structured literature review establishes the foundation for modern software engineer-
+ing research and development. Comparative analysis identifies practical shortcomings
+across manual survey platforms and clarifies why an automated architecture is neces-
+sary. Software benchmarking positions ongoing development within the wider computing
+discipline, spotlighting unresolved operational bottlenecks and setting concrete techni-
+cal boundaries for engineering choices. This chapter systematically evaluates relevant
+academic publications alongside commercial mobile survey systems to substantiate the
+design of the proposed platform [4].
+A clear roadmap will be followed throughout this chapter. In Section 2.1, capabilities
+and limitations of existing survey platforms will be evaluated. Practical field usage of a
+future platform will be examined in Section 2.2, from which the formal problem state-
+ment will be formulated in Section 2.3. The proposed market research platform will be
+described in Section 2.4, followed by a justification of the selected software process model
+in Section 2.5.
+2.1 Existing System
+Software engineers conduct rigorous comparative evaluations of existing commercial
+platforms to ground new system development. Systematic product benchmarking identi-
+fies standard operational features across deployed survey tools while exposing unaddressed
+technical shortcomings in field workflows. Software benchmarking positions ongoing de-
+velopment within the wider computing discipline, spotlighting unresolved operational
+bottlenecks and setting concrete technical boundaries for engineering choices. Investigat-
+ing production software architectures prevents development teams from repeating known
+design flaws and reinventing established engineering mechanisms. Understanding these
+functional boundaries establishes an empirical justification for building specialized soft-
+ware architectures. This section systematically evaluates ten widely used data collection
+platforms, analyzing offline SQLite storage, spatial billboard registries, and multi-agent
+competitive workflows [4], [5].
+Ten systems are reviewed in this section: Qualtrics, SurveyMonkey, ODK, KoboTool-
+box, Fulcrum, SurveyCTO, CommCare, FastField, GeoPoll, and QuickTapSurvey. Se-
+lected as established market leaders and open-source standards, these applications en-
+able survey authoring and offline field collection. Despite their individual strengths, they
+consistently lack multi-agent reasoning, automated billboard evidence verification, and
+2
+
+--- PAGE 4 ---
+geofenced visit controls required for advertising research. A detailed comparison table
+summarizes these systems at the end of the section, followed by an evaluation of common
+patterns and unaddressed gaps that transitions to the next section.
+Qualtrics: Qualtrics provides an enterprise-grade experience management and sur-
+veying suite that organizations deploy for customer feedback and academic research. The
+platform features an advanced web-based questionnaire builder equipped with conditional
+branch logic, quota tracking, and automated response reporting. Organizations distribute
+digital surveys through web links, scheduled emails, and native mobile client applications.
+The software stores survey submissions in cloud database clusters and delivers analytics
+through configurable operational dashboards. While Qualtrics excels at complex psy-
+chometric survey designs and longitudinal consumer monitoring, its architecture exhibits
+clear operational constraints in field research environments. The mobile client does not
+maintain an offline-first SQLite synchronization queue with incremental retry handling for
+remote areas. The platform lacks automated artificial intelligence workflows for billboard
+image quality assessment, physical site verification, and autonomous agent orchestration
+[1].
+The main features of the Application are listed below:
+ Advanced web-based questionnaire builder with complex branching logic
+ Automated quota management and digital distribution pipelines
+ Enterprise role-based access control and respondent privacy governance
+ Real-time analytical dashboards with statistical cross-tabulations
+The limitations of the application are listed below:
+ No offline-first SQLite synchronization queues with retry policies
+ Absence of geofenced attendance verification for field workers
+ No computer vision models for billboard visibility or image quality grading
+ Lacks autonomous multi-agent orchestration for secondary market research
+SurveyMonkey: SurveyMonkey operates as a widely adopted cloud surveying plat-
+form that enables organizations to design, distribute, and analyze standardized web ques-
+tionnaires. The system provides an intuitive browser interface alongside mobile collection
+utilities, allowing users to configure response validation rules, logic branching, and ba-
+sic demographic quotas. Submissions aggregate within centralized cloud storage, where
+built-in analytics modules generate summary charts, sentiment scores, and filtered cross-
+tabulations. SurveyMonkey serves commercial market research teams and corporate mar-
+keting departments seeking rapid customer feedback. The system presents distinct tech-
+nical limitations for physical field investigations and out-of-home advertising verification.
+
+--- PAGE 5 ---
+The platform lacks hierarchical location registries linked to specific field personnel and
+does not support geofenced attendance validation. SurveyMonkey offers no native com-
+puter vision tools for evaluating billboard media or multi-agent pipelines for secondary
+market intelligence [2].
+The main features of the Application are listed below:
+ Intuitive browser-based questionnaire design interface
+ Pre-built survey templates and standard demographic question banks
+ Automated response summarization and basic sentiment scoring
+ Multi-channel survey distribution via web, email, and social links
+The limitations of the application are listed below:
+ Lacks hierarchical location registries for physical billboards
+ No geofenced attendance logging or street-level visit verification
+ No local database synchronization queues for unstable field connections
+ No multi-agent research planning or automated cross-source evidence checks
+ODK: Open Data Kit provides an open-source data collection platform for field re-
+search teams operating across regions with minimal network infrastructure. The platform
+pairs a secure central web server repository with a native Android client application. Field
+workers download digital questionnaires onto mobile devices to gather respondent feed-
+back and survey answers without active internet connectivity. The mobile client records
+precise geospatial coordinates, captures site photographs, and stores field submissions
+locally until wireless connectivity permits server synchronization. Researchers and hu-
+manitarian teams deploy this platform for remote enumeration, demographic studies, and
+continuous environmental monitoring. The software exhibits notable architectural lim-
+itations for commercial billboard advertising audits and spatial market research. The
+platform lacks built-in artificial intelligence agents, cross-source evidence checks, and
+automatic market intelligence report generation [3].
+The main features of the Application are listed below:
+ Standardized XForms support for complex offline mobile questionnaires
+ Android field data collection with GPS logging and photo capture
+ Open-source backend architecture with self-hosting capabilities
+ Asynchronous batch synchronization over cellular or Wi-Fi networks
+The limitations of the application are listed below:
+
+--- PAGE 6 ---
+ No hierarchical campaign management or billboard registry
+ No geofenced attendance enforcement tied to planned site visits
+ No automated image quality or billboard visibility assessment
+ No multi-agent generative reasoning for competitor market analysis
+KoBoToolbox: KoBoToolbox serves as an open-source data collection platform built
+for humanitarian operations and academic research teams. The system combines an
+online questionnaire creator with native mobile collection tools to facilitate systematic
+field investigations. Field personnel deploy the mobile client across remote survey zones
+to record questionnaires, register GPS points, and store site photographs without active
+internet connectivity. The platform aggregates field submissions onto a central repository
+where supervisors inspect response charts, examine spatial distribution maps, and export
+raw data tables. Humanitarian agencies rely on this platform for rapid population census
+runs, crisis monitoring, and community health evaluations. The software shows noticeable
+architectural limitations when organizations attempt commercial advertising research.
+The platform lacks custom registries for physical billboard inventory, geofence boundary
+attendance tracking for audit staff, and automatic artificial intelligence workflows for
+assessing billboard visibility [6].
+The main features of the Application are listed below:
+ Intuitive form builder supporting standard ODK and XForms protocols
+ Offline field survey data collection on mobile devices
+ Central web dashboard with real-time response aggregation and map views
+ Role-based user permissions and granular workspace sharing settings
+The limitations of the application are listed below:
+ No dedicated registry for billboard structures or outdoor marketing assets
+ Absence of geofenced attendance verification for assigned field surveyors
+ Lacks automated computer vision routines for billboard obstruction scoring
+ No autonomous multi-agent orchestration for competitive market intelligence
+Fulcrum: Fulcrum operates as a location-first mobile inspection platform built for
+field teams managing spatial asset inventories. The software allows organizations to craft
+custom survey forms that integrate spatial mapping layers and photographic evidence
+collection. Mobile workers utilize the application to document infrastructure condition,
+record geographic coordinates, and capture high-resolution imagery in offline field envi-
+ronments. The system maintains local data persistence and uploads pending inspection
+
+--- PAGE 7 ---
+records automatically when devices regain wireless network access. Engineering firms
+and utility providers deploy this platform for asset inspections, environmental compli-
+ance surveys, and facility audits. The platform presents distinct architectural constraints
+for commercial marketing intelligence campaigns. The software omits multi-agent rea-
+soning graphs for competitor intelligence, natural language query interfaces for research
+dashboards, and automatic computer vision scoring for billboard visibility [7].
+The main features of the Application are listed below:
+ Location-first mobile data collection with custom inspection forms
+ High-accuracy GPS mapping and spatial layer integration
+ Offline field data caching with automatic background synchronization
+ Geotagged photographic capture and multimedia inspection attachments
+The limitations of the application are listed below:
+ No multi-agent architecture for autonomous competitor intelligence gathering
+ Absence of automated image visibility analysis and billboard angle scoring
+ Lacks conversational natural language querying for research analytics
+ High enterprise subscription costs restrict deployment in smaller teams
+SurveyCTO: SurveyCTO provides a secure mobile data collection suite built for
+rigorous field evaluations and academic research surveys. The platform pairs an online
+form creator with an Android collection client capable of operating in areas without cel-
+lular connectivity. Field enumerators use the mobile client to record systematic interview
+responses, register location markers, and upload photographs under strict end-to-end en-
+cryption standards. The software incorporates automatic data quality monitors, real-time
+audio audits, and statistical anomaly checks to detect fraudulent survey submissions. Re-
+search institutions and non-governmental organizations rely on this platform to maintain
+high data integrity during large-scale socioeconomic investigations. The software shows
+clear functional limitations for commercial outdoor media research. The platform omits
+a central registry for billboard structures, geofence boundary attendance verification for
+field workers, and computer vision pipelines for advertising quality assessments [8].
+The main features of the Application are listed below:
+ Secure mobile data collection with end-to-end encryption
+ Automated quality checks and audio audit capabilities
+ Offline survey completion with automated cloud synchronization
+ Advanced form logic with constraint checks and validation rules
+
+--- PAGE 8 ---
+The limitations of the application are listed below:
+ No native billboard asset management or spatial registry workflows
+ Absence of geofenced attendance logging for physical site visits
+ Lacks deep learning vision models for outdoor advertisement evaluation
+ No multi-agent pipelines for automated market trend extraction
+CommCare: CommCare operates as an open-source mobile platform that organiza-
+tions deploy for longitudinal case management and frontline service delivery. The system
+allows organizational administrators to configure complex multi-step workflows, client
+registration forms, and decision support algorithms through a web interface. Frontline
+staff utilize the Android application to track individuals over successive visits, record sur-
+vey responses, and capture multimedia evidence in zero-connectivity environments. The
+software stores survey records within local phone storage and synchronizes updates with
+central servers when wireless internet becomes available. Healthcare organizations and
+development agencies deploy this platform to coordinate community outreach and patient
+care monitoring. The platform exhibits fundamental structural boundaries for outdoor
+marketing research. The software lacks hierarchical registries for commercial advertising
+assets, geofence boundary attendance logging linking to campaign sites, and automatic
+multi-agent intelligence routines for market analytics [9].
+The main features of the Application are listed below:
+ Longitudinal case management and mobile survey tracking
+ Offline-first mobile client operation on Android hardware
+ Standardized multimedia capture with voice and image logging
+ Cloud reporting portal with export tools for statistical software
+The limitations of the application are listed below:
+ Tailored primarily for public health rather than commercial advertising
+ No computer vision workflows for automated billboard condition auditing
+ Absence of autonomous multi-agent pipelines for market research tasks
+ Lacks natural language query dashboards for dynamic campaign exploration
+Premise Data: Premise Data operates as a community market intelligence platform
+that links commercial enterprises with external global contributors. The system deploys
+an Android smartphone application that gives discrete micro-tasks to local smartphone
+
+--- PAGE 9 ---
+users across international cities. Crowd contributors accept incoming audit tasks, photo-
+graph retail displays, record geographic coordinates, and submit questionnaire responses
+to confirm physical product availability. The platform verifies incoming submissions
+through automatic location checking, timestamp validation, and administrative review
+consoles before releasing contributor compensation. Global consumer goods manufactur-
+ers rely on this network to monitor retail distribution, track product pricing, and audit
+supermarket shelves. The software shows notable operational constraints for continu-
+ous outdoor advertising research. Premise Data lacks offline-first SQLite synchronization
+queues for private field teams. The software also omits automatic computer vision rou-
+tines for billboard obstruction scoring and multi-agent competitive research workflows
+[10].
+The main features of the Application are listed below:
+ Crowdsourced global network for real-time micro-task survey execution
+ Geotagged image submission with timestamp and coordinate validation
+ Automated reward allocation and contributor payment infrastructure
+ Central web analytics interface with geospatial heatmap visualization
+The limitations of the application are listed below:
+ Closed proprietary platform with no support for self-hosted instances
+ Lacks dedicated offline SQLite queue synchronization for private audits
+ No multi-agent generative reasoning for competitor intelligence analysis
+ High reliance on transient crowd workers reduces data auditing consistency
+Streetbees: Streetbees provides an artificial intelligence consumer research platform
+that gathers real-time behavioral insights through smartphone interactions. The platform
+presents survey questions through a conversational chat interface that encourages users to
+share spontaneous thoughts, photographs, and video clips. Mobile respondents interact
+with the application during everyday shopping, dining, and brand consumption routines
+across global consumer markets. The central backend analyzes incoming multimedia
+through natural language processing algorithms that classify emotion, consumer senti-
+ment, and product usage context. Multinational brand managers consult the resulting
+analytics dashboard to identify emerging market trends, evaluate advertising reception,
+and guide product packaging strategies. The software exhibits fundamental operational
+limitations for outdoor billboard research. Streetbees does not offer systematic registries
+for physical advertising locations, geofence visit verification for field inspectors, or com-
+puter vision models for billboard visibility grading [11].
+The main features of the Application are listed below:
+
+--- PAGE 10 ---
+ Conversational chat-style mobile surveying for consumer research
+ Multimedia submission allowing smartphone video and photograph uploads
+ Natural language processing for sentiment and emotion extraction
+ Real-time consumer behavior feeds across international markets
+The limitations of the application are listed below:
+ Focuses on consumer sentiment rather than physical billboard inspections
+ Absence of geofenced attendance enforcement for planned field itineraries
+ No offline-first SQLite database architecture for zero-connectivity zones
+ Lacks computer vision scoring for physical advertising display metrics
+GeoPoll: GeoPoll operates as a mobile surveying platform that conducts remote re-
+search across emerging international markets through telecommunication channels. The
+system connects with millions of mobile subscribers through text messages, interactive
+voice phone calls, and browser links to administer uniform questionnaires. Survey re-
+spondents answer polling inquiries on standard mobile phones without requiring fast
+broadband connections or proprietary smartphone applications. The platform aggregates
+incoming survey answers in real time, delivering demographic cross-tabulations, audience
+measurement statistics, and sentiment summaries through an online dashboard. Me-
+dia broadcasters, international development agencies, and consumer brands rely on this
+platform to measure radio audiences and track public opinion. The software presents ob-
+vious functional constraints for outdoor advertising research. The platform lacks on-site
+inspection capabilities, offline-first SQLite database synchronization for field personnel,
+and computer vision models for auditing physical billboard structures [12].
+The main features of the Application are listed below:
+ Multi-channel mobile surveying across SMS, voice calls, and web links
+ Extensive respondent database covering emerging international markets
+ Fast data turnaround with automated response aggregation pipelines
+ Interactive campaign analytics and media audience measurement tools
+The limitations of the application are listed below:
+ Remote telecom polling model lacks physical on-site audit capabilities
+ No on-device computer vision models for outdoor billboard grading
+ Absence of offline SQLite synchronization for field survey personnel
+ Lacks autonomous multi-agent graphs for cross-verifying ground truth data
+
+--- PAGE 11 ---
+Table 2.1 Table 2.1 outlines the functional characteristics of the ten reviewed tools
+and the proposed platform. It reviews operational differences in local caching, geofenced
+attendance, automated billboard scoring, and agent-based research workflows.
+Table 2.1: Comparison of Existing Systems
+F eatures
+Applications
+Qualtrics [1]
+SurveyMonkey [2]
+ODK [3]
+KoBoToolbox [6]
+Fulcrum [7]
+SurveyCTO [8]
+CommCare [9]
+Premise Data [10]
+Streetbees [11]
+GeoPoll [12]
+Proposed System
+Web Questionnaires ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓
+Offline Mobile Collection ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✗ ✓ ✓
+Android Field Collection ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓
+Media Capture (Photo/Audio) ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓
+GPS & Location Logging ✗ ✗ ✓ ✓ ✓ ✓ ✓ ✓ ✗ ✓ ✓
+Billboard & Asset Registry ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✓
+Geofenced Attendance Verification ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✓
+Offline SQLite Sync Queues ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✓
+Mobile AI Image Quality Assessment ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✓
+AI Agent Orchestration (LangGraph) ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✓
+Human-in-the-Loop Review Pipeline ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✓
+2.2 Future System Usage Analysis
+Market research systems will shift toward autonomous data collection and spatial
+intelligence across the advertising industry. Field survey platforms will incorporate co-
+operative artificial intelligence agents to coordinate campaign planning and competitor
+monitoring. Rather than relying on static questionnaires, mobile applications will run
+on-device computer vision models to evaluate billboard viewing angles, physical condi-
+tion, and ambient lighting in real time. Smart synchronization protocols will store survey
+submissions locally on mobile hardware and upload batches as wireless networks emerge.
+Multi-agent software pipelines will automatically cross-reference street photographs with
+secondary web data, uncovering market trends and flagging inconsistent responses for
+human review. Brand strategists will consult conversational dashboards to query survey
+metrics and trace claims directly to physical site evidence. Through these continuous
+advancements, modern platforms will transform out-of-home advertising measurement
+into a verifiable, tamper-resistant discipline.
+
+--- PAGE 12 ---
+2.3 Problem Statement / Limitations
+Outdoor advertising research currently relies on manual field auditing routines across
+metropolitan media markets. Survey organizations deploy field enumerators equipped
+with consumer smartphone applications to inspect roadside billboard structures. Field
+auditors record descriptive questionnaire responses, photograph commercial advertising
+displays, and note geographic coordinates across daily audit routes. Central analysts
+manually pair detached photographs with corresponding survey records before compiling
+advertiser campaign reports. Commercial brand managers depend on these audits to
+verify physical display condition, monitor competitor spending, and confirm contractual
+campaign delivery. The traditional auditing process exhibits severe operational limita-
+tions for large-scale media verification. Current field practices lack offline-first SQLite
+synchronization queues for remote survey areas, automated computer vision scoring for
+billboard visibility, and coordinated multi-agent workflows for competitive market intel-
+ligence.
+The proposed system operates under defined practical constraints and concrete en-
+gineering limitations throughout development. The engineering team confines physical
+testing to regional commercial districts within Islamabad before attempting multi-city au-
+dits. The development team manages this timeline constraint by conducting structured
+field trials across accessible commercial hubs. Inherent variations across mobile smart-
+phone hardware introduce data collection hurdles, as entry-level Android devices produce
+uneven photographic resolution and sensor noise. To resolve this hardware limitation, the
+backend architecture applies contrast adjustments and normalization algorithms to stan-
+dardize captured photographs before automated evaluation. Furthermore, commercial
+outdoor rate cards remain largely proprietary and absent from open web databases. The
+team mitigates this data scarcity by instructing automated web agents to extract public
+media listings and comparing them against synthetic valuation models. The development
+team consciously addresses these operational boundaries across development sprints to
+ensure successful milestone delivery.
+2.4 Proposed Solution
+The proposed software architecture establishes an integrated mobile and cloud plat-
+form to automate outdoor media verification across metropolitan commercial areas. Field
+enumerators inspect roadside billboard structures using a native Android smartphone
+application operating without cellular connectivity. The mobile application records high-
+resolution photographs, timestamps, and geospatial coordinates within local SQLite database
+tables before pushing data to central servers. Central FastAPI backend services ingest
+incoming survey submissions and store relational campaign records within a PostgreSQL
+database with PostGIS extensions. LangGraph multi-agent workflows search external
+
+--- PAGE 13 ---
+advertising directories to cross-reference campaign pricing and identify competitive bill-
+board placements. Deep convolutional neural networks evaluate captured photographs
+to detect physical banner tears, viewing obstruction, and poor display angles. Central
+administrators configure geofenced audit corridors within Islamabad to direct field teams
+toward unverified commercial displays. Marketing analysts examine street-level audit
+trails and export verification reports through interactive web consoles using natural lan-
+guage search queries.
+2.5 Software Process Model
+A software process model provides a systematic engineering framework that directs
+the lifecycle of modern digital systems from inception to release. This framework or-
+ganizes complex engineering tasks into predictable phases, practical activities, and clear
+team workflows. Development teams achieve superior coordination, dependable milestone
+tracking, and high system reliability through such operational discipline. System char-
+acteristics such as overall scope complexity, delivery deadlines, and requirement fluidity
+determine the most suitable development methodology. This section outlines and defends
+the software process model for the system [4].
+The engineering group selects Agile Scrum because developing multi-agent software
+demands rapid experimentation on raw media assets. Upcoming two-week sprints will
+produce functional Flutter components and backend APIs, while bi-weekly demos will
+guide the system toward timely milestone delivery.
+2.5.1 Introduction
+The development team adopts the Agile Scrum framework to direct system engineer-
+ing across recurring cycles. This operational methodology divides complex engineering
+goals into distinct two-week iterations, encouraging cross-functional teamwork and early
+prototype evaluations. The framework suits the system because engineering autonomous
+research agents, offline SQLite synchronization queues, and YOLO vision algorithms de-
+mands ongoing practical trial. Software developers work across successive sprints to refine
+FastAPI backend services, construct Flutter mobile interfaces, and optimize multi-agent
+LangGraph workflows. Each development cycle begins with sprint planning, proceeds into
+active programming, and concludes with functional code testing and supervisor demon-
+strations. This rhythmic workflow helps developers resolve software defects promptly
+and integrate updated survey requirements without delaying scheduled milestone deliv-
+ery. Figure 2.1 illustrates the complete development workflow for the system [4].
+
+--- PAGE 14 ---
+Figure 2.1: Iterative Agile Scrum development process model adopted for the system
+2.5.2 Justification
+The development team chooses the Agile Scrum methodology to manage engineer-
+ing risks across multi-tier software modules. Building mobile survey clients, cloud spa-
+tial databases, and autonomous web agents involves tight technical interdependencies.
+Scrum divides these technical dependencies into manageable two-week engineering cy-
+cles, enabling developers to discover database bottlenecks early and revise agent prompts
+promptly. This iterative workflow allows the team to deliver stable software increments
+while meeting all system research requirements.
+2.5.3 Steps
+The development team will structure engineering milestones across four distinct Scrum
+iterations. Initial sprints will configure PostgreSQL schemas and local SQLite storage
+queues. Subsequent cycles will produce LangGraph multi-agent orchestration pipelines,
+computer vision quality filters, and central verification web consoles for research analysts.
+Sprint 1: Core Architecture & Data Ingestion: The engineering group will
+build foundational database tables and authentication APIs during the opening sprint.
+Software developers will configure a cloud PostgreSQL instance with PostGIS geospatial
+modules, and the team will write baseline FastAPI endpoints to ingest incoming survey
+submissions from mobile clients.
+Sprint 2: Mobile Client & Field Verification: Mobile engineers will construct
+the Flutter data collection client during the second sprint. Field staff will photograph
+roadside billboard structures and record coordinate markers through an Android client.
+The mobile application will cache inspection logs within local SQLite database files when-
+
+--- PAGE 15 ---
+ever field workers lose wireless mobile signals.
+Sprint 3: Multi-Agent Intelligence & Vision Scoring: System developers will
+program autonomous LangGraph reasoning workflows and image evaluation algorithms
+during the third sprint. Multi-agent Python scripts will scrape external commercial
+media catalogs, while computer vision modules will inspect captured photographs for
+foliage obstruction, lighting glare, and angle distortion.
+Sprint 4: Analytics Dashboard & System Verification: The development team
+will assemble central administrative consoles and conduct end-to-end integration tests
+during the concluding sprint. Software engineers will deploy natural language search
+tools for campaign analysts, and auditors will test field synchronization across several
+busy Islamabad commercial districts before final release.
+
+--- PAGE 16 ---
+References
+[1] Qualtrics, “Qualtrics Survey Platform,” [Online]. Available:
+https://www.qualtrics.com/ [Accessed: Sep. 16, 2026].
+[2] SurveyMonkey, “SurveyMonkey,” [Online]. Available:
+https://www.surveymonkey.com/ [Accessed: Sep. 16, 2026].
+[3] ODK, “ODK.” [Online]. Available: https://getodk.org/ [Accessed: Sep. 16, 2026].
+[4] H. Washizaki, Ed., “Guide to the Software Engineering Body of Knowledge (SWE-
+BOK Guide),” version 4.0a, IEEE Computer Society, Aug. 2026. [Online]. Avail-
+able: https://ieeecs-media.computer.org/media/education/swebok/swebok-v4.pdf.
+[Accessed: Oct. 7, 2026].
+[5] P. Burek, “Developing a complete project scope statement in 2 days,” pre-
+sented at PMI Global Congress 2006—North America, Seattle, W A, USA, 2006.
+Newtown Square, PA, USA: Project Management Institute. [Online]. Avail-
+able: https://www.pmi.org/learning/library/project-scope-statement-skills-tools-
+7981. [Accessed: Oct. 8, 2026].
+[6] KoBoToolbox, “KoBoToolbox Data Collection Platform,” Kobo Inc., [Online]. Avail-
+able: https://www.kobotoolbox.org/ [Accessed: Oct. 2026].
+[7] Fulcrum, “Fulcrum Spatial Mobile Field Inspection Platform,” Spatial Networks
+Inc., [Online]. Available: https://www.fulcrumapp.com/ [Accessed: Oct. 2026].
+[8] Dobility, “SurveyCTO Mobile Data Collection Platform,” Dobility Inc., [Online].
+Available: https://www.surveycto.com/ [Accessed: Oct. 2026].
+[9] Dimagi, “CommCare Digital Platform for Frontline Workers,” Dimagi Inc., [Online].
+Available: https://www.dimagi.com/commcare/ [Accessed: Oct. 2026].
+[10] Premise Data, “Premise Real-Time Market Intelligence Platform,” Premise Data
+Corp., [Online]. Available: https://www.premise.com/ [Accessed: Oct. 2026].
+[11] Streetbees, “Streetbees AI-Powered Consumer Intelligence Platform,” Streetbees
+Ltd., [Online]. Available: https://www.streetbees.com/ [Accessed: Oct. 2026].
+[12] GeoPoll, “GeoPoll Mobile Survey Platform for Emerging Markets,” Mobile Accord
+Inc., [Online]. Available: https://www.geopoll.com/ [Accessed: Oct. 2026].
+15
+
