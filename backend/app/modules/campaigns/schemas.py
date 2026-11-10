@@ -42,13 +42,13 @@ class AdvertisementBase(BaseModel):
     name: str
     campaign_id: str
     location_id: str
-    ad_type: str = Field(pattern="^(Static Billboard|Digital LED|Unipole|Gantry|Transit Shelter|Wall Branding)$")
+    ad_type: str = "Static Billboard"
     brand: str
     dimensions: str # e.g. "60x20"
     orientation: Optional[str] = "North-Facing"
-    illumination_type: str = Field(default="Frontlit", pattern="^(Frontlit|Backlit|Digital/LED|Unlit)$")
+    illumination_type: str = "Frontlit"
     image_url: Optional[str] = None
-    status: str = Field(default="Active", pattern="^(Active|Under Maintenance|Inactive)$")
+    status: str = "Active"
 
 class AdvertisementCreate(AdvertisementBase):
     pass
@@ -179,7 +179,7 @@ class CampaignEvidenceBase(BaseModel):
     campaign_id: str
     assignment_id: Optional[str] = None
     location_id: str
-    evidence_type: str = Field(pattern="^(Photograph|Audio Observation|GPS Timestamp|Condition Note)$")
+    evidence_type: str = "Photograph"
     file_url: str
     latitude: Optional[float] = None
     longitude: Optional[float] = None

@@ -16,6 +16,7 @@ from app.modules.campaigns.schemas import (
     CampaignDetailResponse, LocationCreate, LocationUpdate, LocationResponse,
     LocationTreeNode, AdvertisementCreate, AdvertisementUpdate, AdvertisementResponse,
     CompetitorCreate, CompetitorUpdate, CompetitorResponse,
+    CompetitorCampaignResponse, CompetitorAdvertisementResponse,
     CampaignAssignmentCreate, CampaignAssignmentUpdate, CampaignAssignmentResponse,
     CampaignEvidenceCreate, CampaignEvidenceReview, CampaignEvidenceResponse,
     CompetitorComparisonResponse

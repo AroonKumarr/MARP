@@ -435,13 +435,13 @@ let mockEvidence = [
 ];
 
 async function tryProxy(req: NextRequest, pathParts: string[], method: string) {
-  const targetHost = process.env.BACKEND_API_URL || "http://127.0.0.1:8000";
+  const targetHost = process.env.BACKEND_API_URL || "https://marp-production.up.railway.app";
   const search = req.nextUrl.search;
   const targetUrl = `${targetHost}/api/v1/${pathParts.join("/")}${search}`;
 
   try {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 2000); // 2s timeout for local/remote proxy
+    const timeout = setTimeout(() => controller.abort(), 8000); // 8s timeout for remote proxy
 
     const body = method !== "GET" && method !== "HEAD" ? await req.text() : undefined;
     const res = await fetch(targetUrl, {
@@ -455,9 +455,11 @@ async function tryProxy(req: NextRequest, pathParts: string[], method: string) {
     });
     clearTimeout(timeout);
 
-    if (res.ok || res.status === 401 || res.status === 403 || res.status === 422) {
-      const data = await res.json();
-      return NextResponse.json(data, { status: res.status });
+    if (res.ok || [400, 401, 403, 404, 409, 422].includes(res.status)) {
+      const data = await res.json().catch(() => null);
+      if (data !== null) {
+        return NextResponse.json(data, { status: res.status });
+      }
     }
   } catch {
     // Backend offline or unreachable, fall through to in-memory fallback
