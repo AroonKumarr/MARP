@@ -2,12 +2,15 @@
 const nextConfig = {
   reactStrictMode: true,
   async rewrites() {
-    return [
-      {
-        source: "/api/:path*",
-        destination: "http://127.0.0.1:8000/api/:path*",
-      },
-    ];
+    if (process.env.BACKEND_API_URL) {
+      return [
+        {
+          source: "/api/:path*",
+          destination: `${process.env.BACKEND_API_URL}/api/:path*`,
+        },
+      ];
+    }
+    return [];
   },
   images: {
     domains: ["images.unsplash.com", "api.dicebear.com"],
