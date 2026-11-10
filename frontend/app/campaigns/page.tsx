@@ -323,7 +323,8 @@ export default function CampaignsPage() {
             />
           ) : (
             <div className="bg-white rounded-[24px] border border-[#ECE8E0] overflow-hidden shadow-xs">
-              <table className="w-full text-left text-xs">
+              <div className="overflow-x-auto w-full">
+                <table className="w-full min-w-[750px] text-left text-xs">
                 <thead>
                   <tr className="border-b border-[#F5F2EB] bg-[#FAF8F3] text-[#77746F] font-bold uppercase tracking-wider">
                     <th className="py-3.5 px-5">Media Asset</th>
@@ -388,6 +389,7 @@ export default function CampaignsPage() {
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
           )}
         </div>

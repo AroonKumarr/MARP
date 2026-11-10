@@ -176,8 +176,8 @@ export default function UsersPage() {
       />
 
       {/* Tabs Switcher */}
-      <div className="flex items-center justify-between mb-6 pb-2 border-b border-[#ECE8E0]">
-        <div className="flex items-center gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-2 border-b border-[#ECE8E0]">
+        <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full">
           <button
             onClick={() => setActiveTab("users")}
             className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all ${
@@ -260,7 +260,8 @@ export default function UsersPage() {
             />
           ) : (
             <div className="bg-white rounded-[24px] border border-[#ECE8E0] overflow-hidden shadow-xs">
-              <table className="w-full text-left text-xs">
+              <div className="overflow-x-auto w-full">
+                <table className="w-full min-w-[700px] text-left text-xs">
                 <thead>
                   <tr className="border-b border-[#F5F2EB] bg-[#FAF8F3] text-[#77746F] font-bold uppercase tracking-wider">
                     <th className="py-3.5 px-5">User</th>
@@ -357,6 +358,7 @@ export default function UsersPage() {
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
           )}
         </div>
@@ -372,7 +374,8 @@ export default function UsersPage() {
             />
           ) : (
             <div className="bg-white rounded-[24px] border border-[#ECE8E0] overflow-hidden shadow-xs">
-              <table className="w-full text-left text-xs">
+              <div className="overflow-x-auto w-full">
+                <table className="w-full min-w-[700px] text-left text-xs">
                 <thead>
                   <tr className="border-b border-[#F5F2EB] bg-[#FAF8F3] text-[#77746F] font-bold uppercase tracking-wider">
                     <th className="py-3.5 px-5">Device</th>
@@ -448,6 +451,7 @@ export default function UsersPage() {
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
           )}
         </div>
@@ -464,7 +468,7 @@ export default function UsersPage() {
               {auditLogs.map((log) => (
                 <div
                   key={log.id}
-                  className="p-3.5 rounded-2xl bg-[#FAF8F3] border border-[#EAE6DD] flex items-center justify-between"
+                  className="p-3.5 rounded-2xl bg-[#FAF8F3] border border-[#EAE6DD] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-[#111111] text-white flex items-center justify-center font-bold text-xs">

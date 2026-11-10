@@ -249,7 +249,7 @@ export default function QuestionnaireBuilderPage() {
           </Link>
 
           <div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <h2 className="text-xl font-black text-[#171717]">{questionnaire.title}</h2>
               <Badge variant="periwinkle">{questionnaire.category}</Badge>
               <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#111111] text-white">
@@ -293,7 +293,7 @@ export default function QuestionnaireBuilderPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 mb-6">
+      <div className="flex items-center gap-2 mb-6 overflow-x-auto pb-1 max-w-full">
         <button
           onClick={() => setActiveTab("builder")}
           className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${

@@ -61,7 +61,43 @@ Visual regression tests were conducted across Desktop (1440×900), Laptop (1280�
 
 ---
 
-## 4. Remaining Limitations & Recommendations
+## 4. Enhanced Responsiveness & Hover Sidebar Audit (Phase 2)
+
+Following user requirements, the platform interface was upgraded with **hover-expandable sidebar mechanics**, **native touch drawers for mobile devices**, and **comprehensive responsive scaling** across all major breakpoints:
+
+| Viewport Category | Screen Dimension | Test Device Simulation | Observations & Performance | Screenshot Reference |
+|---|---|---|---|---|
+| **Desktop (Collapsed)** | 1440×900 | High-Res Monitor | Compact `w-20` sleek black dock displaying squircle icon pills. | `docs/screenshots/responsive/01_desktop_sidebar_normal.png` |
+| **Desktop (Hovered)** | 1440×900 | High-Res Monitor | Mouse hover smoothly expands dock to `w-64`, revealing navigation labels, MARP subtitle, active dots, and user profile card. | `docs/screenshots/responsive/02_desktop_sidebar_hovered.png` |
+| **Desktop ERD View** | 1440×900 | High-Res Monitor | Interactive 3-Circle Student ERD tab with filter chips, SVG zoom preview, and direct download buttons. | `docs/screenshots/responsive/03_settings_3_circle_erd.png` |
+| **Mobile Dashboard** | 390×844 | iPhone 14 Pro | Responsive vertical stack with mobile top bar and hamburger menu button. | `docs/screenshots/responsive/04_mobile_dashboard_390.png` |
+| **Mobile Drawer** | 390×844 | iPhone 14 Pro | Slide-in drawer with brand mark, route descriptions, user email, and sign out control. | `docs/screenshots/responsive/05_mobile_drawer_open_390.png` |
+| **Mobile Tables** | 390×844 | iPhone 14 Pro | Horizontal scroll wrappers (`overflow-x-auto`) preserving table structure without layout blowout. | `docs/screenshots/responsive/06_mobile_users_table_390.png` |
+| **Mobile Surveys** | 390×844 | iPhone 14 Pro | Single-column cards with responsive category filters and creation modals. | `docs/screenshots/responsive/07_mobile_questionnaires_390.png` |
+| **Mobile Campaigns** | 390×844 | iPhone 14 Pro | Adaptive billboard grids, location tree, and competitor intelligence. | `docs/screenshots/responsive/08_mobile_campaigns_390.png` |
+| **Mobile ERD** | 390×844 | iPhone 14 Pro | Full 3-circle diagram accessible on smartphones with responsive horizontal panning. | `docs/screenshots/responsive/09_mobile_settings_erd_390.png` |
+| **Tablet Viewport** | 768×1024 | iPad Air / Mini | 2-column adaptive layout with preserved touch spacing and card typography. | `docs/screenshots/responsive/10_tablet_dashboard_768.png` |
+| **Laptop Viewport** | 1280×800 | MacBook Air 13" | Full multi-column dashboard with smooth hover expansion and zero layout jitter. | `docs/screenshots/responsive/11_laptop_dashboard_1280.png` |
+
+---
+
+## 5. FYP 3-Circle Student ERD Deliverable
+
+The unified relational schema containing **28 relational tables** is divided into three distinct, color-coded, marked circles:
+
+1. **Circle 1: Aroon Kumar (Seat No: 2312466)** — Module 01: User Management & Workspace Isolation (10 entities)
+2. **Circle 2: Mudasir Ali (Seat No: 2312465)** — Module 02: Questionnaire Management & Dynamic Logic (8 entities)
+3. **Circle 3: Abdullah Zafar Khan (Seat No: 2312467)** — Module 03: Campaign Management & Asset Registry (10 entities)
+
+Deliverables:
+- **Vector Diagram:** `docs/database/erd_students_annotated.svg`
+- **Raster Image:** `docs/database/erd_students_annotated.png`
+- **Technical Specification:** `docs/database/student-erd-breakdown.md`
+- **Live Application Route:** `/settings` -> Tab: "3-Circle Student ERD"
+
+---
+
+## 6. Remaining Limitations & Recommendations
 
 1. **Native Mobile App Integration (Sprint 2):** The web application exposes authenticated REST endpoints for offline synchronization; the Kotlin/Flutter mobile client build is scheduled for subsequent project sprints.
 2. **Automated Computer Vision Glare Detection (Sprint 3):** Evidence photographs are currently validated via human reviewer workflows, with LangGraph automated OCR/glare models planned for Sprint 3.

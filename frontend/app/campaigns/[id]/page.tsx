@@ -179,7 +179,7 @@ export default function CampaignDetailPage() {
           </Link>
 
           <div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <span className="font-mono text-xs font-bold text-[#1E3A8A] bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
                 {campaign.code}
               </span>
@@ -209,7 +209,7 @@ export default function CampaignDetailPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 mb-6">
+      <div className="flex items-center gap-2 mb-6 overflow-x-auto pb-1 max-w-full">
         <button
           onClick={() => setActiveTab("ads")}
           className={`px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 transition-all ${
@@ -303,7 +303,8 @@ export default function CampaignDetailPage() {
       {/* TAB 2: Field Staff Assignments */}
       {activeTab === "assignments" && (
         <div className="flex-1 bg-white rounded-[24px] border border-[#ECE8E0] overflow-hidden shadow-xs">
-          <table className="w-full text-left text-xs">
+          <div className="overflow-x-auto w-full">
+            <table className="w-full min-w-[700px] text-left text-xs">
             <thead>
               <tr className="border-b border-[#F5F2EB] bg-[#FAF8F3] text-[#77746F] font-bold uppercase tracking-wider">
                 <th className="py-3.5 px-5">Field Staff Member</th>
@@ -362,6 +363,7 @@ export default function CampaignDetailPage() {
               ))}
             </tbody>
           </table>
+          </div>
         </div>
       )}
 

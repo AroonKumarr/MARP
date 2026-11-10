@@ -114,7 +114,7 @@ export default function QuestionnairesPage() {
       {/* Categories Bar & Filters */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6 pb-2 border-b border-[#ECE8E0]">
         {/* Research Category Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1">
+        <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full">
           {["All", "Billboard", "Retail", "Competitor", "Field"].map((cat) => (
             <button
               key={cat}

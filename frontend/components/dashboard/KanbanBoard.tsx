@@ -49,7 +49,7 @@ export function KanbanBoard({
   };
 
   const renderColumn = (title: string, items: BoardItem[]) => (
-    <div className="flex-1 min-w-[280px] flex flex-col gap-3.5">
+    <div className="flex-1 min-w-0 w-full flex flex-col gap-3 sm:gap-3.5">
       {/* Column Header */}
       <div className="flex items-center gap-2 px-1">
         <h3 className="text-base font-bold text-[#171717]">{title}</h3>
@@ -135,7 +135,7 @@ export function KanbanBoard({
   );
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
       {renderColumn("To do", todo)}
       {renderColumn("In progress", inProgress)}
       {renderColumn("Review", review)}
