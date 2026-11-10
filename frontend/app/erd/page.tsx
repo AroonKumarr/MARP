@@ -11,18 +11,21 @@ import {
   Copy,
   Check,
   ArrowLeft,
-  Share2,
-  Database,
   ExternalLink,
+  Layers,
+  Sparkles,
+  Maximize2,
 } from "lucide-react";
 
 export default function StandaloneERDPage() {
   const [zoomLevel, setZoomLevel] = useState(1);
   const [selectedStudent, setSelectedStudent] = useState<"all" | "aroon" | "mudasir" | "abdullah">("all");
+  const [format, setFormat] = useState<"svg" | "png">("svg");
   const [copied, setCopied] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
   const handleZoomIn = () => setZoomLevel((prev) => Math.min(prev + 0.25, 3));
-  const handleZoomOut = () => setZoomLevel((prev) => Math.max(prev - 0.25, 0.5));
+  const handleZoomOut = () => setZoomLevel((prev) => Math.max(prev - 0.25, 0.4));
   const handleResetZoom = () => setZoomLevel(1);
 
   const handleCopyLink = () => {
@@ -35,10 +38,15 @@ export default function StandaloneERDPage() {
     window.print();
   };
 
+  const imgSrc =
+    format === "svg" && !imgError
+      ? "/database/erd_students_annotated.svg"
+      : "/database/erd_presentation_1920.png";
+
   return (
     <div className="min-h-screen bg-[#F1F5F9] flex flex-col font-sans antialiased text-[#0F172A]">
       {/* Top Navigation & Action Toolbar */}
-      <header className="bg-white border-b border-[#E2E8F0] px-4 sm:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3 sticky top-0 z-40 shadow-xs print:hidden">
+      <header className="bg-white border-b border-[#E2E8F0] px-4 sm:px-8 py-3 flex flex-wrap items-center justify-between gap-3 sticky top-0 z-40 shadow-xs print:hidden">
         <div className="flex items-center gap-3">
           <Link
             href="/"
@@ -108,8 +116,35 @@ export default function StandaloneERDPage() {
           </button>
         </div>
 
-        {/* Right Action Tools: Zoom & Export */}
+        {/* Right Action Tools: Format Toggle, Zoom & Export */}
         <div className="flex items-center gap-2 flex-wrap">
+          {/* Format Toggle: SVG vs PNG */}
+          <div className="flex items-center bg-[#F1F5F9] border border-[#CBD5E1] rounded-full p-0.5 text-xs font-bold">
+            <button
+              onClick={() => {
+                setFormat("svg");
+                setImgError(false);
+              }}
+              className={`px-2.5 py-1 rounded-full transition-all ${
+                format === "svg" && !imgError
+                  ? "bg-white text-[#0F172A] shadow-xs"
+                  : "text-[#64748B] hover:text-[#0F172A]"
+              }`}
+            >
+              Vector SVG
+            </button>
+            <button
+              onClick={() => setFormat("png")}
+              className={`px-2.5 py-1 rounded-full transition-all ${
+                format === "png" || imgError
+                  ? "bg-white text-[#0F172A] shadow-xs"
+                  : "text-[#64748B] hover:text-[#0F172A]"
+              }`}
+            >
+              High-Res PNG
+            </button>
+          </div>
+
           {/* Zoom controls */}
           <div className="flex items-center bg-[#F8FAFC] border border-[#CBD5E1] rounded-full p-1 gap-1">
             <button
@@ -158,7 +193,19 @@ export default function StandaloneERDPage() {
             <span>Print PDF</span>
           </button>
 
-          {/* Downloads dropdown / buttons */}
+          {/* Open Raw in New Tab */}
+          <a
+            href={imgSrc}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3 py-1.5 rounded-full bg-white hover:bg-[#F8FAFC] border border-[#CBD5E1] text-xs font-bold text-[#0F172A] flex items-center gap-1.5 transition-colors shadow-xs"
+            title="Open raw image in full new browser tab"
+          >
+            <ExternalLink className="w-3.5 h-3.5 text-[#475569]" />
+            <span>Full Image</span>
+          </a>
+
+          {/* Downloads */}
           <a
             href="/database/erd_students_annotated.svg"
             download="MARP_3_Circle_Student_ERD.svg"
@@ -166,7 +213,7 @@ export default function StandaloneERDPage() {
             className="px-3.5 py-1.5 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-colors"
           >
             <Download className="w-3.5 h-3.5" />
-            <span>Vector SVG</span>
+            <span>SVG</span>
           </a>
 
           <a
@@ -176,7 +223,7 @@ export default function StandaloneERDPage() {
             className="px-3 py-1.5 rounded-full bg-[#4338CA] hover:bg-[#3730A3] text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-colors"
           >
             <Download className="w-3.5 h-3.5" />
-            <span>Slide PNG</span>
+            <span>PNG</span>
           </a>
         </div>
       </header>
@@ -256,18 +303,43 @@ export default function StandaloneERDPage() {
             </p>
           </div>
         </div>
+
+        {/* Filter Details Banner when a student is selected */}
+        {selectedStudent !== "all" && (
+          <div className="max-w-7xl mx-auto mt-2.5 p-2.5 bg-[#F8FAFC] rounded-xl border border-[#CBD5E1] flex items-center justify-between text-xs">
+            <span className="font-semibold text-[#334155]">
+              Viewing Focus:{" "}
+              <strong className="text-[#0F172A]">
+                {selectedStudent === "aroon" && "Circle 1: Aroon Kumar (Module 01 — 10 Entities)"}
+                {selectedStudent === "mudasir" && "Circle 2: Mudasir Ali (Module 02 — 8 Entities)"}
+                {selectedStudent === "abdullah" && "Circle 3: Abdullah Zafar Khan (Module 03 — 10 Entities)"}
+              </strong>
+            </span>
+            <button
+              onClick={() => setSelectedStudent("all")}
+              className="text-[#4338CA] hover:underline font-bold text-[11px]"
+            >
+              Reset to All 3 Circles
+            </button>
+          </div>
+        )}
       </section>
 
       {/* Main Interactive Diagram Canvas */}
       <main className="flex-1 overflow-auto p-4 sm:p-8 flex items-center justify-center bg-[#F8FAFC]">
         <div
-          className="transition-transform duration-200 origin-top flex items-center justify-center bg-white rounded-2xl shadow-lg border border-[#CBD5E1] p-4"
+          className="transition-transform duration-200 origin-top flex flex-col items-center justify-center bg-white rounded-2xl shadow-lg border border-[#CBD5E1] p-4 max-w-full"
           style={{ transform: `scale(${zoomLevel})` }}
         >
           <img
-            src="/database/erd_students_annotated.svg"
+            src={imgSrc}
             alt="Final Year Project - Multi-Agent Market Research Platform 3-Circle Student ERD"
-            className="w-full max-w-[2400px] h-auto object-contain"
+            className="w-full max-w-[2400px] h-auto object-contain block select-none"
+            draggable={false}
+            onError={() => {
+              console.warn("SVG failed to render, falling back to PNG");
+              setImgError(true);
+            }}
           />
         </div>
       </main>

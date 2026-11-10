@@ -75,7 +75,7 @@
 
     <!-- ==================== CIRCLE 1: AROON KUMAR (MODULE 01) ==================== -->
     <g id="circle-aroon-kumar">
-      <!-- Glow & Enclosing Boundary Capsule -->
+      <!-- Glow &amp; Enclosing Boundary Capsule -->
       <rect x="60" y="210" width="1420" height="2370" rx="40" fill="#EEF2FF" stroke="#4F46E5" stroke-width="4" stroke-dasharray="14 10" filter="url(#circleGlow1)"/>
       
       <!-- Prominent Student Circle Label Header -->
@@ -132,7 +132,7 @@
 <rect width="660" height="270" rx="12" fill="#FFFFFF" stroke="#6366F1" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 648 0 Q 660 0 660 12 L 660 46 L 0 46 Z" fill="#3730A3"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">WORKSPACE_SETTINGS</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Workspace policy, auto-approval & theme tokens</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Workspace policy, auto-approval &amp; theme tokens</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -167,7 +167,7 @@
 <rect width="640" height="330" rx="12" fill="#FFFFFF" stroke="#6366F1" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 628 0 Q 640 0 640 12 L 640 46 L 0 46 Z" fill="#3730A3"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">USERS</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">User credentials, access control & profile records</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">User credentials, access control &amp; profile records</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -289,7 +289,7 @@
 <rect width="640" height="190" rx="12" fill="#FFFFFF" stroke="#6366F1" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 628 0 Q 640 0 640 12 L 640 46 L 0 46 Z" fill="#3730A3"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">PERMISSIONS</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Granular module & action authorization privileges</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Granular module &amp; action authorization privileges</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -326,7 +326,7 @@
 <rect width="640" height="310" rx="12" fill="#FFFFFF" stroke="#6366F1" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 628 0 Q 640 0 640 12 L 640 46 L 0 46 Z" fill="#3730A3"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">REGISTERED_DEVICES</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Android field hardware devices, IMEI & security status</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Android field hardware devices, IMEI &amp; security status</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -450,7 +450,7 @@
 
     <!-- ==================== CIRCLE 2: MUDASIR ALI (MODULE 02) ==================== -->
     <g id="circle-mudasir-ali">
-      <!-- Glow & Enclosing Boundary Capsule -->
+      <!-- Glow &amp; Enclosing Boundary Capsule -->
       <rect x="1540" y="210" width="1420" height="2370" rx="40" fill="#ECFDF5" stroke="#10B981" stroke-width="4" stroke-dasharray="14 10" filter="url(#circleGlow2)"/>
       
       <!-- Prominent Student Circle Label Header -->
@@ -466,7 +466,7 @@
 <rect width="640" height="310" rx="12" fill="#FFFFFF" stroke="#10B981" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 628 0 Q 640 0 640 12 L 640 46 L 0 46 Z" fill="#065F46"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">QUESTIONNAIRES</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Market research survey templates & categories</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Market research survey templates &amp; categories</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -508,7 +508,7 @@
 <rect width="660" height="230" rx="12" fill="#FFFFFF" stroke="#10B981" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 648 0 Q 660 0 660 12 L 660 46 L 0 46 Z" fill="#065F46"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">QUESTIONNAIRE_VERSIONS</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Sealed immutable JSON snapshots & version changelog</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Sealed immutable JSON snapshots &amp; version changelog</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -537,7 +537,7 @@
 <rect width="640" height="270" rx="12" fill="#FFFFFF" stroke="#10B981" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 628 0 Q 640 0 640 12 L 640 46 L 0 46 Z" fill="#065F46"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">QUESTIONS</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">10 Visual question types, ordering & constraints</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">10 Visual question types, ordering &amp; constraints</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -575,7 +575,7 @@
 <rect width="660" height="190" rx="12" fill="#FFFFFF" stroke="#10B981" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 648 0 Q 660 0 660 12 L 660 46 L 0 46 Z" fill="#065F46"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">QUESTION_OPTIONS</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Single choice, multiple choice & dropdown items</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Single choice, multiple choice &amp; dropdown items</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -598,7 +598,7 @@
 <rect width="640" height="210" rx="12" fill="#FFFFFF" stroke="#10B981" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 628 0 Q 640 0 640 12 L 640 46 L 0 46 Z" fill="#065F46"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">QUESTION_TRANSLATIONS</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Multilingual localization (Urdu RTL & English)</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Multilingual localization (Urdu RTL &amp; English)</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -658,7 +658,7 @@
 <rect width="640" height="230" rx="12" fill="#FFFFFF" stroke="#10B981" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 628 0 Q 640 0 640 12 L 640 46 L 0 46 Z" fill="#065F46"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">QUESTIONNAIRE_ELIGIBILITIES</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Respondent demographic criteria & target quotas</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Respondent demographic criteria &amp; target quotas</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -747,7 +747,7 @@
 
     <!-- ==================== CIRCLE 3: ABDULLAH ZAFAR KHAN (MODULE 03) ==================== -->
     <g id="circle-abdullah-zafar">
-      <!-- Glow & Enclosing Boundary Capsule -->
+      <!-- Glow &amp; Enclosing Boundary Capsule -->
       <rect x="3020" y="210" width="1500" height="2370" rx="40" fill="#FFFBEB" stroke="#F59E0B" stroke-width="4" stroke-dasharray="14 10" filter="url(#circleGlow3)"/>
       
       <!-- Prominent Student Circle Label Header -->
@@ -763,7 +763,7 @@
 <rect width="680" height="330" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 668 0 Q 680 0 680 12 L 680 46 L 0 46 Z" fill="#92400E"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">CAMPAIGNS</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Multi-market research campaigns, budgets & lifecycle</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Multi-market research campaigns, budgets &amp; lifecycle</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -812,7 +812,7 @@
 <rect width="700" height="330" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 688 0 Q 700 0 700 12 L 700 46 L 0 46 Z" fill="#92400E"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">LOCATIONS</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">5-Tier Pakistan Geographical Hierarchy & Coordinates</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">5-Tier Pakistan Geographical Hierarchy &amp; Coordinates</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -874,7 +874,7 @@
 <rect width="700" height="330" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 688 0 Q 700 0 700 12 L 700 46 L 0 46 Z" fill="#92400E"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">ADVERTISEMENTS</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Out-of-Home billboard registry, dimensions & lighting</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Out-of-Home billboard registry, dimensions &amp; lighting</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -926,7 +926,7 @@
 <rect width="680" height="230" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 668 0 Q 680 0 680 12 L 680 46 L 0 46 Z" fill="#92400E"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">COMPETITORS</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Competitor brand intelligence & market share entities</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Competitor brand intelligence &amp; market share entities</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -958,7 +958,7 @@
 <rect width="680" height="210" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 668 0 Q 680 0 680 12 L 680 46 L 0 46 Z" fill="#92400E"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">COMPETITOR_CAMPAIGNS</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Competitor marketing activities & duration tracking</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Competitor marketing activities &amp; duration tracking</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -987,7 +987,7 @@
 <rect width="700" height="250" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 688 0 Q 700 0 700 12 L 700 46 L 0 46 Z" fill="#92400E"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">COMPETITOR_ADVERTISEMENTS</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Competitor billboard footprint & media registry</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Competitor billboard footprint &amp; media registry</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -1023,7 +1023,7 @@
 <rect width="680" height="310" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 668 0 Q 680 0 680 12 L 680 46 L 0 46 Z" fill="#92400E"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">CAMPAIGN_ASSIGNMENTS</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Field surveyor scheduling, priorities & dispatch</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Field surveyor scheduling, priorities &amp; dispatch</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
@@ -1087,7 +1087,7 @@
 <rect width="700" height="310" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.8"/>
 <path d="M 0 12 Q 0 0 12 0 L 688 0 Q 700 0 700 12 L 700 46 L 0 46 Z" fill="#92400E"/>
 <text x="16" y="25" fill="#FFFFFF" font-size="13.5" font-weight="900" font-family="monospace" letter-spacing="0.3">CAMPAIGN_EVIDENCE</text>
-<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Field photos, GPS coordinates & audit verification</text>
+<text x="16" y="39" fill="#E2E8F0" font-size="9.5" font-weight="600">Field photos, GPS coordinates &amp; audit verification</text>
 <rect x="14" y="55" width="24" height="14" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
 <text x="19" y="66" fill="#92400E" font-size="8.5" font-weight="900" font-family="monospace">PK</text>
 <text x="52" y="66" fill="#0F172A" font-size="11.5" font-weight="700" font-family="monospace">id</text>
